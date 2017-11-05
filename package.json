@@ -95,7 +95,8 @@
   },
   "dependencies": {
     "@meltwater/mlabs-logger": "^2.1.0",
-    "confit": "^2.2.1"
+    "confit": "^2.2.1",
+    "koa-favicon": "^2.0.0"
   },
   "devDependencies": {
     "@meltwater/examplr": "^2.0.0",
