@@ -79,6 +79,7 @@
   "nyc": {
     "exclude": [
       "**/index.js",
+      "lib/server.js",
       "dist/**/*.js",
       "examples/**/*.js",
       "**/*.spec.js"
@@ -92,7 +93,10 @@
   "engines": {
     "node": ">=8.9.0"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@meltwater/mlabs-logger": "^2.1.0",
+    "confit": "^2.2.1"
+  },
   "devDependencies": {
     "@meltwater/examplr": "^2.0.0",
     "ava": "^0.23.0",
