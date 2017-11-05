@@ -79,6 +79,7 @@
   "nyc": {
     "exclude": [
       "**/index.js",
+      "lib/bootstrapper.js",
       "lib/server.js",
       "dist/**/*.js",
       "examples/**/*.js",
