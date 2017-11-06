@@ -3,11 +3,12 @@ import 'source-map-support/register'
 import path from 'path'
 
 import createExamples from '@meltwater/examplr'
+import createLogger from '@meltwater/mlabs-logger'
 
-import isTrue from './is-true' // TODO: Replace this with added example.
+import server from './server'
 
 export const examples = {
-  isTrue // TODO: Replace this with added example.
+  server
 }
 
 const envVars = [
@@ -19,6 +20,7 @@ const defaultOptions = {}
 
 if (require.main === module) {
   const { runExample } = createExamples({
+    createLogger,
     examples,
     envVars,
     defaultOptions

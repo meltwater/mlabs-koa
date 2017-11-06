@@ -103,6 +103,7 @@
   "devDependencies": {
     "@meltwater/examplr": "^2.0.0",
     "ava": "^0.23.0",
+    "awilix": "^2.10.0",
     "babel-cli": "^6.18.0",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-env": "^1.1.4",
@@ -116,6 +117,7 @@
     "gulp-standard": "^10.0.0",
     "gulp-watch": "^4.3.10",
     "gulplog": "^1.0.0",
+    "koa": "^2.3.0",
     "nodemon": "^1.11.0",
     "npm-run-all": "^4.0.0",
     "nyc": "^11.0.2",
