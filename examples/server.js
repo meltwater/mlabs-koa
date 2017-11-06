@@ -1,18 +1,28 @@
 import { createContainer, Lifetime } from 'awilix'
 import Koa from 'koa'
+import { createHealthMonitor, healthLogging } from '@meltwater/mlabs-health'
 
 import { createServer } from '../lib'
 
 const { SINGLETON } = Lifetime
 
-const createStart = ({log}) => async () => {}
+const createHealth = ({log} = {}) => {
+  return createHealthMonitor({puppies: true})
+}
+
+const createStart = ({log, healthMonitor}) => async () => {
+  healthLogging({log, healthMonitor})
+  await healthMonitor.puppies.events.emit()
+}
+
 const createStop = ({log}) => async () => {}
+
 const createApp = ({log} = {}) => {
   const app = new Koa()
   return app
 }
 
-export default ({log}) => async (port = 9000) => {
+export default ({log}) => (port = 9000) => {
   const createDependencies = ({config}) => {
     const container = createContainer()
 
@@ -20,6 +30,7 @@ export default ({log}) => async (port = 9000) => {
     container.registerFunction({start: [createStart, {lifetime: SINGLETON}]})
     container.registerFunction({stop: [createStop, {lifetime: SINGLETON}]})
     container.registerFunction({app: [createApp, {lifetime: SINGLETON}]})
+    container.registerFunction({healthMonitor: [createHealth, {lifetime: SINGLETON}]})
 
     return container
   }
