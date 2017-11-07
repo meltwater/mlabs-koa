@@ -40,7 +40,7 @@ export default ({log}) => (port = 9000) => {
     createDependencies
   })
 
-  configFactory.addOverride({port: parseInt(port)})
+  configFactory.addOverride({port})
 
   run(configFactory)
 }
