@@ -95,6 +95,7 @@
     "node": ">=8.9.0"
   },
   "dependencies": {
+    "@koa/cors": "^2.2.1",
     "@meltwater/mlabs-logger": "^2.1.0",
     "@meltwater/phi": "^0.3.0",
     "confit": "^2.2.1",
