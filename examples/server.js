@@ -1,8 +1,9 @@
 import { createContainer, Lifetime } from 'awilix'
 import Koa from 'koa'
+import Router from 'koa-router'
 import { createHealthMonitor, healthLogging } from '@meltwater/mlabs-health'
 
-import { createServer } from '../lib'
+import { createServer, koaHealthy } from '../lib'
 
 const { SINGLETON } = Lifetime
 
@@ -19,6 +20,12 @@ const createStop = ({log}) => async () => {}
 
 const createApp = ({log} = {}) => {
   const app = new Koa()
+  const router = new Router()
+
+  router.get('/api/v1/health', koaHealthy())
+  app.use(router.routes())
+  app.use(router.allowedMethods())
+
   return app
 }
 
