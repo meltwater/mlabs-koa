@@ -420,6 +420,10 @@ ava@^0.23.0:
     unique-temp-dir "^1.0.0"
     update-notifier "^2.3.0"
 
+awilix-koa@^0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/awilix-koa/-/awilix-koa-0.1.1.tgz#4cf6e19668b11db2ba0888e7d2203af21c67aa21"
+
 awilix@^2.10.0:
   version "2.10.0"
   resolved "https://registry.yarnpkg.com/awilix/-/awilix-2.10.0.tgz#d76e5b51c9eb40ec766292422b35274aa145efab"

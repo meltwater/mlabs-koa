@@ -114,6 +114,7 @@
     "@meltwater/mlabs-health": "^0.6.1",
     "ava": "^0.23.0",
     "awilix": "^2.10.0",
+    "awilix-koa": "^0.1.1",
     "babel-cli": "^6.18.0",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-env": "^1.1.4",
