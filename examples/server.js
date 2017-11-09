@@ -5,10 +5,10 @@ import { createHealthMonitor, healthLogging } from '@meltwater/mlabs-health'
 
 import { createServer, koaHealthy } from '../lib'
 
-const { SINGLETON } = Lifetime
+const { SCOPED, SINGLETON } = Lifetime
 
-const createHealth = ({log} = {}) => {
-  return createHealthMonitor({puppies: true})
+const createHealth = container => {
+  return createHealthMonitor({puppies: () => container.resolve('puppies')})
 }
 
 const createStart = ({log, healthMonitor}) => async () => {
@@ -29,15 +29,26 @@ const createApp = ({log} = {}) => {
   return app
 }
 
+const createPuppies = ({log, reqId} = {}) => {
+  const health = () => {
+    log.child({service: 'puppies'}).info('Health: Start')
+    return true
+  }
+  return {health}
+}
+
 export default ({log}) => (port = 9000) => {
   const createDependencies = ({config}) => {
     const container = createContainer()
 
     container.registerValue({log})
+    container.registerValue({reqId: null})
+    container.registerValue({createHealthMonitor: createHealth})
     container.registerFunction({start: [createStart, {lifetime: SINGLETON}]})
     container.registerFunction({stop: [createStop, {lifetime: SINGLETON}]})
     container.registerFunction({app: [createApp, {lifetime: SINGLETON}]})
-    container.registerFunction({healthMonitor: [createHealth, {lifetime: SINGLETON}]})
+
+    container.registerFunction({puppies: [createPuppies, {lifetime: SCOPED}]})
 
     return container
   }
