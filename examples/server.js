@@ -1,5 +1,4 @@
 import { createContainer, Lifetime } from 'awilix'
-import { scopePerRequest } from 'awilix-koa'
 import Koa from 'koa'
 import { createHealthMonitor, healthLogging } from '@meltwater/mlabs-health'
 
@@ -32,8 +31,6 @@ export default ({log}) => (port = 9000) => {
     container.registerFunction({stop: [createStop, {lifetime: SINGLETON}]})
     container.registerFunction({app: [createApp, {lifetime: SINGLETON}]})
     container.registerFunction({healthMonitor: [createHealth, {lifetime: SINGLETON}]})
-
-    container.resolve('app').use(scopePerRequest(container))
 
     return container
   }
