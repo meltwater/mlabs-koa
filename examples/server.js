@@ -18,7 +18,6 @@ const createHealth = container => createHealthMonitor({
 
 const createStart = ({log, healthMonitor}) => async () => {
   healthLogging({log, healthMonitor})
-  await healthMonitor.puppies.events.emit()
 }
 
 const createStop = ({log}) => async () => {}
