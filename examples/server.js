@@ -2,7 +2,11 @@ import { createContainer, Lifetime } from 'awilix'
 import Koa from 'koa'
 import Router from 'koa-router'
 import koaMount from 'koa-mount'
-import { createHealthMonitor, healthLogging } from '@meltwater/mlabs-health'
+import {
+  createHealthMonitor,
+  healthLogging,
+  createHealthy
+} from '@meltwater/mlabs-health'
 
 import { createServer, koaHealthy } from '../lib'
 
@@ -44,6 +48,7 @@ const createDependencies = log => ({config}) => {
   container.registerValue({log})
   container.registerValue({reqId: null})
   container.registerValue({createHealthMonitor: createHealth})
+  container.registerValue({healthMethods: {health: createHealthy()}})
   container.registerFunction({start: [createStart, {lifetime: SINGLETON}]})
   container.registerFunction({stop: [createStop, {lifetime: SINGLETON}]})
   container.registerFunction({app: [createApp, {lifetime: SINGLETON}]})
