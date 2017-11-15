@@ -34,7 +34,6 @@
     "build:lib": "babel --source-maps --ignore='*.spec.js' --out-dir dist/lib lib",
     "dist": "yarn run build",
     "predist": "yarn test",
-    "prepack": "yarn run build",
     "preversion": "yarn run dist",
     "postversion": "git push && git push --tags",
     "example": "babel-node examples",
@@ -115,7 +114,7 @@
     "uuid": "^3.1.0"
   },
   "devDependencies": {
-    "@meltwater/examplr": "^2.0.0",
+    "@meltwater/examplr": "^3.0.0",
     "@meltwater/mlabs-health": "^0.6.1",
     "ava": "^0.23.0",
     "awilix": "^2.10.0",
@@ -134,9 +133,8 @@
     "gulplog": "^1.0.0",
     "koa": "^2.4.1",
     "nodemon": "^1.11.0",
-    "npm-run-all": "^4.0.0",
+    "npm-run-all": "^4.1.2",
     "nyc": "^11.0.2",
-    "source-map-support": "^0.5.0",
     "standard": "^10.0.2",
     "testdouble": "^3.2.6"
   }
