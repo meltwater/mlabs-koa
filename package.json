@@ -100,7 +100,7 @@
     "@koa/cors": "^2.2.1",
     "@meltwater/mlabs-logger": "^3.1.0",
     "@meltwater/phi": "^0.4.2",
-    "awilix-koa": "^0.1.1",
+    "awilix-koa": "^1.0.2",
     "confit": "^2.2.1",
     "koa-conditional-get": "^2.0.0",
     "koa-etag": "^3.0.0",
