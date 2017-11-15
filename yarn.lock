@@ -56,14 +56,14 @@
     bunyan-formatter "^1.0.0"
     change-case "^3.0.1"
 
-"@meltwater/mlabs-health@^0.6.1":
-  version "0.6.2"
-  resolved "https://registry.yarnpkg.com/@meltwater/mlabs-health/-/mlabs-health-0.6.2.tgz#cb459a2fd15bdc500329d2d7d8759ec09cc48787"
+"@meltwater/mlabs-health@^0.7.0":
+  version "0.7.0"
+  resolved "https://registry.yarnpkg.com/@meltwater/mlabs-health/-/mlabs-health-0.7.0.tgz#06cfce7967e536c9219c9793e2c8bc8d43e427dd"
   dependencies:
     "@reactivex/rxjs" "^5.4.2"
     bunyan "^1.8.12"
     cache-manager "^2.4.0"
-    ramda "^0.24.1"
+    ramda "^0.25.0"
     uuid "^3.1.0"
 
 "@meltwater/mlabs-logger@^3.1.0":
@@ -74,9 +74,9 @@
     bunyan-formatter "^1.0.0"
     debug "^3.0.0"
 
-"@meltwater/phi@^0.3.0":
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/@meltwater/phi/-/phi-0.3.0.tgz#5b0e0a15b6b34f125792f3e4587abfddb13e561d"
+"@meltwater/phi@^0.4.2":
+  version "0.4.2"
+  resolved "https://registry.yarnpkg.com/@meltwater/phi/-/phi-0.4.2.tgz#7e1f5ce65fd124aea03fcd05c0484a545543286a"
 
 "@reactivex/rxjs@^5.4.2":
   version "5.5.2"
@@ -4744,10 +4744,6 @@ quibble@^0.5.1:
 ramda-adjunct@^1.19.0:
   version "1.19.0"
   resolved "https://registry.yarnpkg.com/ramda-adjunct/-/ramda-adjunct-1.19.0.tgz#87acbee7b67af5bf83c311061bebbf08a4fbbd3d"
-
-ramda@^0.24.1:
-  version "0.24.1"
-  resolved "https://registry.yarnpkg.com/ramda/-/ramda-0.24.1.tgz#c3b7755197f35b8dc3502228262c4c91ddb6b857"
 
 ramda@^0.25.0:
   version "0.25.0"
