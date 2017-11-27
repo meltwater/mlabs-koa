@@ -99,7 +99,7 @@
   "dependencies": {
     "@koa/cors": "^2.2.1",
     "@meltwater/mlabs-logger": "^3.1.0",
-    "@meltwater/phi": "^0.4.2",
+    "@meltwater/phi": "^1.0.0",
     "awilix-koa": "^1.0.2",
     "confit": "^2.2.1",
     "koa-conditional-get": "^2.0.0",
@@ -110,13 +110,13 @@
     "koa-mount": "^3.0.0",
     "koa-router": "^7.2.1",
     "ramda": "^0.25.0",
-    "ramda-adjunct": "^1.19.0",
+    "ramda-adjunct": "^2.0.0",
     "uuid": "^3.1.0"
   },
   "devDependencies": {
     "@meltwater/examplr": "^3.0.0",
-    "@meltwater/mlabs-health": "^0.7.0",
-    "ava": "^0.23.0",
+    "@meltwater/mlabs-health": "^1.0.0",
+    "ava": "^0.24.0",
     "awilix": "^2.10.0",
     "babel-cli": "^6.18.0",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
