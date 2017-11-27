@@ -94,13 +94,13 @@
     "node": ">=8.9.0"
   },
   "peerDependencies": {
+    "awilix": "^3.0",
     "koa": "^2.0"
   },
   "dependencies": {
     "@koa/cors": "^2.2.1",
     "@meltwater/mlabs-logger": "^3.1.0",
     "@meltwater/phi": "^1.0.0",
-    "awilix-koa": "^1.0.2",
     "confit": "^2.2.1",
     "koa-conditional-get": "^2.0.0",
     "koa-etag": "^3.0.0",
@@ -117,7 +117,7 @@
     "@meltwater/examplr": "^3.0.0",
     "@meltwater/mlabs-health": "^1.0.0",
     "ava": "^0.24.0",
-    "awilix": "^2.10.0",
+    "awilix": "^3.0.0-rc.3",
     "babel-cli": "^6.18.0",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-env": "^1.1.4",

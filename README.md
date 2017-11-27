@@ -12,16 +12,16 @@ Core middleware for Koa apps.
 
 ## Installation
 
-Add this as a dependency to your project using [npm] with
+Add this and its peer dependencies as dependencies to your project using [npm] with
 
 ```
-$ npm install @meltwater/mlabs-koa
+$ npm install awilix koa @meltwater/mlabs-koa
 ```
 
 or using [Yarn] with
 
 ```
-$ yarn add @meltwater/mlabs-koa
+$ yarn add awilix koa @meltwater/mlabs-koa
 ```
 
 [npm]: https://www.npmjs.com/

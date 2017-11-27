@@ -1,19 +1,17 @@
-import { createContainer, Lifetime } from 'awilix'
+import { createContainer, asValue, asFunction } from 'awilix'
 import Koa from 'koa'
 import Router from 'koa-router'
 import koaMount from 'koa-mount'
 import {
-  createHealthMonitor,
+  createHealthMonitor as createMlabsHealthMonitor,
   healthLogging,
   createHealthy
 } from '@meltwater/mlabs-health'
 
 import { createServer, koaHealthy } from '../lib'
 
-const { SCOPED, SINGLETON } = Lifetime
-
-const createHealth = container => createHealthMonitor({
-  puppies: () => container.resolve('puppies')
+const createHealthMonitor = () => createMlabsHealthMonitor({
+  puppies: container => container.resolve('puppies')
 })
 
 const createStart = ({log, healthMonitor}) => async () => {
@@ -22,7 +20,7 @@ const createStart = ({log, healthMonitor}) => async () => {
 
 const createStop = ({log}) => async () => {}
 
-const createApp = ({log} = {}) => {
+const createApp = ({log}) => {
   const app = new Koa()
   const router = new Router()
 
@@ -33,9 +31,9 @@ const createApp = ({log} = {}) => {
   return app
 }
 
-const createPuppies = ({log, reqId} = {}) => {
+const createPuppies = ({log, reqId}) => {
   const health = () => {
-    log.child({service: 'puppies'}).info('Health: Start')
+    log.child({service: 'puppies', reqId}).info('Health: Start')
     return true
   }
   return {health}
@@ -44,15 +42,21 @@ const createPuppies = ({log, reqId} = {}) => {
 const createDependencies = log => ({config}) => {
   const container = createContainer()
 
-  container.registerValue({log})
-  container.registerValue({reqId: null})
-  container.registerValue({createHealthMonitor: createHealth})
-  container.registerValue({healthMethods: {health: createHealthy()}})
-  container.registerFunction({start: [createStart, {lifetime: SINGLETON}]})
-  container.registerFunction({stop: [createStop, {lifetime: SINGLETON}]})
-  container.registerFunction({app: [createApp, {lifetime: SINGLETON}]})
+  container.register({
+    log: asValue(log),
+    healthMethods: asValue({health: createHealthy()}),
+    start: asFunction(createStart).singleton(),
+    stop: asFunction(createStop).singleton(),
+    app: asFunction(createApp).singleton()
+  })
 
-  container.registerFunction({puppies: [createPuppies, {lifetime: SCOPED}]})
+  container.register({
+    healthMonitor: asFunction(createHealthMonitor).singleton()
+  })
+
+  container.register({
+    puppies: asFunction(createPuppies).scoped()
+  })
 
   return container
 }
