@@ -1,6 +1,6 @@
 {
   "name": "@meltwater/mlabs-koa",
-  "version": "0.8.0",
+  "version": "0.9.0",
   "description": "Core middleware for Koa apps.",
   "main": "dist/index.js",
   "module": "index.js",
