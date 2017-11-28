@@ -24,11 +24,11 @@ Provide configuration and dependencies to run the Koa server.
 1. `options` (*object*):
     - `configPath` (*string* **required**):
       Full path to the configuration directory.
-      See [Config](#Config) below.
+      See [Config](#config) below.
     - `createDependencies` (*function* **required**):
       Function which takes a [confit] config object
       and returns an [Awilix] container.
-      See [Dependencies](#Dependencies) below.
+      See [Dependencies](#dependencies) below.
 
 #### Returns
 
