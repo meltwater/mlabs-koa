@@ -8,7 +8,7 @@
 
 ## Description
 
-Core middleware for Koa apps.
+Koa middleware and server bootstrapper.
 
 ## Installation
 
@@ -29,22 +29,23 @@ $ yarn add awilix koa @meltwater/mlabs-koa
 
 ## Usage
 
-<!--- TODO: Update usage example for added module(s). -->
-
 **See the complete [API documentation](./docs) and [working examples](./examples).**
 
-This package provides an async function which checks if its argument is true.
+Assuming `createDependencies` is provided
+by your application along with a config folder,
+bootstrap a server with
 
 ```js
-import isTrue from '@meltwater/mlabs-koa'
+import path from 'path'
 
-const logTrue = async () => {
-  const trueValue = await isTrue(true)
-  console.log(trueValue)
+import createServer from '@meltwater/mlabs-koa'
+import { createDependencies } from '../lib'
+
+if (require.main === module) {
+  const configPath = path.resolve(__dirname, 'config')
+  const { configFactory, run } = createServer({configPath, createDependencies})
+  run(configFactory)
 }
-
-logTrue().catch(err => { console.log(err) })
-// true
 ```
 
 ## Development Quickstart
