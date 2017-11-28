@@ -43,6 +43,7 @@ but may be disabled or configured as needed.
 [`favicon`]: https://github.com/koajs/favicon
 [`helmet`]: https://github.com/venables/koa-helmet
 [`logger`]: https://github.com/koajs/logger
+[Boom]: https://github.com/hapijs/boom
 
 ## Installation
 

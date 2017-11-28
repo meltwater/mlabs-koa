@@ -76,7 +76,7 @@ The following dependencies must be registered in `createDependencies`:
   - `stop`: Async function called on server shutdown.
   - `app`: The Koa app to mount.
 
-A minimal example would look like
+A minimal example (taken from [`server.js`](../examples/server.js)) looks like
 
 ```js
 const createDependencies = ({log, config}) => {
