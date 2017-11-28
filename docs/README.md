@@ -120,6 +120,14 @@ the following is true:
 All configuration options have sensible defaults
 so no config options are required.
 
+#### Example
+
+A full example of a `default.json` config file is given below.
+All custom options are shown and third party middleware
+are given as empty objects for completeness.
+
+TODO
+
 #### `port`
 
 The port to run the server on.
