@@ -8,7 +8,41 @@
 
 ## Description
 
-Koa middleware and server bootstrapper.
+Koa middleware suite and server bootstrapper.
+
+Wires up configuration to dependencies and creates
+a production ready Koa server will a full middleware stack.
+
+Uses [confit] for configuration and [Awilix] for dependency injection.
+
+[Awilix]: https://github.com/jeffijoe/awilix
+[confit]: https://github.com/krakenjs/confit
+
+### Middleware
+
+All middleware is enabled by default
+but may be disabled or configured as needed.
+
+- [`conditionalGet`]: Conditional GET support.
+- [`cors`]: Enable CORS.
+- `dependencyInjection`: Inject scoped `reqId` and `log` for each request.
+- `error`: Error handling with [Boom].
+- [`etag`]: Add ETag to response.
+- [`favicon`]: Serve a default favicon.
+- [`helmet`]: Security middleware.
+- [`logger`]: Log all requests.
+- `requestId`: Read `x-request-id` header and add to `ctx.state`.
+- `health`: Check health and serve status at `/health`.
+- `status`: Serve health status at `/status`.
+- `root`: Serve `package.json` at `/`.
+- `robots`: Serve `/robots.txt`.
+
+[`conditionalGet`]: https://github.com/koajs/conditional-get
+[`cors`]: https://github.com/koajs/cors
+[`etag`]: https://github.com/koajs/etag
+[`favicon`]: https://github.com/koajs/favicon
+[`helmet`]: https://github.com/venables/koa-helmet
+[`logger`]: https://github.com/koajs/logger
 
 ## Installation
 
