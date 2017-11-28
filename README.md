@@ -48,6 +48,9 @@ if (require.main === module) {
 }
 ```
 
+The specification for `createDependencies` and valid configuration files
+is described in the [API documentation](./docs).
+
 ## Development Quickstart
 
 ```

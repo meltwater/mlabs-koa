@@ -29,11 +29,11 @@ import { createServer } from '@meltwater/mlabs-koa'
 #### Returns
 
 (*object*):
-    - `configFactory` (*object*):
-      The [confit] config factory.
-    - `run` (*function*):
-      Takes a single argument, the confit config factory,
-      and starts the Koa server
+  - `configFactory` (*object*):
+    The [confit] config factory.
+  - `run` (*function*):
+    Takes a single argument, the confit config factory,
+    and starts the Koa server
 
 ---
 ### `koaHealthy(options)`
