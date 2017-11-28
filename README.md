@@ -15,6 +15,8 @@ a production ready Koa server will a full middleware stack.
 
 Uses [confit] for configuration and [Awilix] for dependency injection.
 
+A minimal example is provided in [`server.js`](./examples/server.js).
+
 [Awilix]: https://github.com/jeffijoe/awilix
 [confit]: https://github.com/krakenjs/confit
 
@@ -66,9 +68,13 @@ $ yarn add awilix koa @meltwater/mlabs-koa
 
 **See the complete [API documentation](./docs) and [working examples](./examples).**
 
-Assuming `createDependencies` is provided
-by your application along with a config folder,
-bootstrap a server with
+Bootstrap a server.
+
+This assumes `createDependencies` is provided
+by your application along with a config folder
+The specification for `createDependencies` and valid configuration files
+is described in the [API documentation](./docs).
+A full example is provided in [`server.js`](./examples/server.js).
 
 ```js
 import path from 'path'
@@ -82,9 +88,6 @@ if (require.main === module) {
   run(configFactory)
 }
 ```
-
-The specification for `createDependencies` and valid configuration files
-is described in the [API documentation](./docs).
 
 ## Development Quickstart
 

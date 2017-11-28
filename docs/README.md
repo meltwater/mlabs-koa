@@ -144,7 +144,7 @@ property `disable` which may be set to skip loading the middleware.
 
 Third party middleware is configured as documented on
 the corresponding project:
-see the [links in the README](../README.md#Middleware).
+see the [links in the README](../README.md#middleware).
 
 Custom middleware configuration is documented below.
 
