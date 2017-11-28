@@ -138,9 +138,9 @@ Override with `PORT`.
 Passed to the [Logger] `createLogger` function.
 The following additional properties will be added if defined:
 
-- `env` (override with `LOG_ENV`).
-- `service` (override with `LOG_SERVICE`).
-- `system` (override with `LOG_SYSTEM`).
+- `env`: Adds `@env` to logs (override with `LOG_ENV`).
+- `service`: Adds `@service` to logs (override with `LOG_SERVICE`).
+- `system`: Adds `@system` to logs (override with `LOG_SYSTEM`).
 
 #### `koa`
 
