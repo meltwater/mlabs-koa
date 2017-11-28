@@ -110,6 +110,7 @@ In addition to the standard behavior of [confit],
 the following is true:
 
 - The default config file is named `default.json` (not `config.json`).
+- If `env.json` exists it will be loaded as an override file.
 - If `local.json` exists it will be loaded as the final override file.
 - The key `config` will contain the `configPath`.
 - The key `pkg` will contain the contents of `package.json` from the
