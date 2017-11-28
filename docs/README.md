@@ -100,7 +100,7 @@ const createDependencies = ({log, config}) => {
 
 ## Config
 
-The `configPath` must point to a path containing a set of [config] config files.
+The `configPath` must point to a path containing a set of [confit] config files.
 
 Since the config factory is returned before the server starts up,
 more files may be loaded and the configuration may be modified
