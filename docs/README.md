@@ -24,7 +24,7 @@ Provide configuration and dependencies to run the Koa server.
 1. `options` (*object*):
     - `configPath` (*string* **required**):
       Full path to the configuration directory.
-      See [Config](#config) below.
+      See [Middleware and Config](#configandmiddleware) below.
     - `createDependencies` (*function* **required**):
       Function which takes a [confit] config object
       and returns an [Awilix] container.
@@ -37,14 +37,17 @@ Provide configuration and dependencies to run the Koa server.
     The [confit] config factory.
   - `run` (*function*):
     Takes a single argument, the confit config factory,
-    and starts the Koa server
+    and starts the Koa server.
 
 ---
 ### `koaHealthy(options)`
 
-Middleware that always sets either a 200 or 503 status code.
+Standalone middleware that always sets either a 200 or 503 status code.
 If the request accepts JSON, it will set the body to either
 `{"healthy": true}` or `{"healthy": false}`.
+
+This middleware is not mounted anywhere by default,
+it is meant to be used for an API health endpoint.
 
 #### Arguments
 
@@ -60,21 +63,24 @@ If the request accepts JSON, it will set the body to either
 ## Dependencies
 
 The `createDependencies` function will be passed an object with
-`log` and `config`.
+`log` (a [Logger]) and `config` (a [confit] config object).
+Use `config.get('a:b:c')` to pass configuration to dependencies.
 
 The following dependencies must be registered in `createDependencies`:
 
-  - `log`: A [Logger] instance.
-  - `healthMonitor`: A [Health Monitor].
-    Each health check will be called with the [Awilix] container.
-  - `healthMethods`: Health methods to determine health status
-    for each health endpoint.
-    See [createHealthy].
-    The `health` key must be provided and will be used by default
-    for any unspecified health checks.
-  - `start`: Async function called before server startup.
-  - `stop`: Async function called on server shutdown.
-  - `app`: The Koa app to mount.
+- `log`: A [Logger] instance.
+- `healthMonitor`: A [Health Monitor].
+  Each health check will be called with the [Awilix] container.
+- `healthMethods`: Health methods to determine health status
+  for each health endpoint.
+  See [createHealthy].
+  The `health` key must be provided and will be used by default
+  for any unspecified health checks.
+- `start`: Async function to wait on before server startup:
+  called before server has started accepting new connections.
+- `stop`: Async function to wait on before server shutdown:
+  called after server has stopped accepting new connections.
+- `app`: The Koa app to mount.
 
 A minimal example (taken from [`server.js`](../examples/server.js)) looks like
 
@@ -98,7 +104,7 @@ const createDependencies = ({log, config}) => {
 }
 ```
 
-## Config
+## Config and Middleware
 
 The `configPath` must point to a path containing a set of [confit] config files.
 
@@ -121,37 +127,31 @@ the following is true:
 All configuration options have sensible defaults
 so no config options are required.
 
-#### Example
-
-A full example of a `default.json` config file is given below.
-All custom options are shown and third party middleware
-are given as empty objects for completeness.
-
-TODO
-
 #### `port`
 
-The port to run the server on.
+The port number to run the server on.
 Override with `PORT`.
 
 #### `log`
 
-Passed to the [Logger] `createLogger` function.
+Object passed directly to the [Logger] `createLogger` function.
 The following additional properties will be added if defined:
 
 - `env`: Adds `@env` to logs (override with `LOG_ENV`).
 - `service`: Adds `@service` to logs (override with `LOG_SERVICE`).
+  Default: automatically determined from the package name.
 - `system`: Adds `@system` to logs (override with `LOG_SYSTEM`).
+  Default: automatically determined from the package name.
 
 #### `koa`
 
-Middleware configuration object:
+Koa middleware configuration object:
 each property is passed to the corresponding middleware.
 
 All Middleware configuration takes an additional boolean
 property `disable` which may be set to skip loading the middleware.
 
-Third party middleware is configured as documented on
+Third party middleware configuration is documented on
 the corresponding project:
 see the [links in the README](../README.md#middleware).
 
@@ -163,25 +163,163 @@ TODO
 
 ##### `error`
 
-TODO
+_All errors are logged independently of this middleware._
+
+Catches and wrap all errors as [Boom] errors.
+Errors are sent as a response in the standard format:
+
+```json
+{
+  "error": {
+    "error": 'Internal Server Error',
+    "message": 'On fire!',
+    "data": {"isOnFire": true},
+    "status": 500,
+    "statusCode": 500
+  }
+}
+```
+
+Additional data passed to Boom errors is set under `error.data`.
+
+- `isServerErrorExposed`: Expose server errors (5xx status codes)
+  to client in response body.
+  Default: true.
 
 ##### `health`
 
-TODO
+Serve `health` healthy status at `GET /health`.
+and individual healthy status at `GET /health/:name`.
+
+- `path`: Path to serve health.
+  Default: `/health`
 
 ##### `status`
 
-TODO
+Serve `health` monitor status at `GET /status`
+and individual health monitor status at `GET /status/:name`.
+
+- `path`: Path to serve status.
+  Default: `/status`
 
 ##### `root`
 
-TODO
+Serves a JSON document at `GET /`.
+
+- `data`: JSON object to serve.
 
 ##### `robots`
 
-TODO
+Serves `GET /robots.txt`.
+Includes the rules `allow` and `disallow`.
+Disallows all by default.
+
+- `rules`: Object containing named rules.
+  Each property should be an array of strings,
+  each of which will appear on it's own line in `robots.txt`.
+  Default: set of predefined rules.
+- `rule`: Name of the rule to use from `rules`.
+  Default: `disallow`.
+
+##### `requestId`
+
+Looks for a request id in the state or request header,
+otherwise generates a new one to save in the state.
+Passes the request id along in the responses headers.
+
+- `reqHeader`: Request header to use for the request id.
+  Default: `x-request-id`.
+- `resHeader`: Response header to use for the request id.
+  Default: `x-request-id`.
+- `paramName`: Request id will be stored or looked for in `ctx.state[paramName]`.
+  Default: `id`.
+- `generator`: Synchronous function to generate new ids.
+  Default: UUID version 4.
+
+##### `favicon`
+
+Takes configuration for [koa-favicon](https://github.com/koajs/favicon)
+with the additional property `path` which should be the full path
+to the favicon file.
+
+### Example
+
+A full example of a config file is given below.
+
+Configuration for third party middleware,
+[listed in the README](../README.md#middleware),
+is passed through unmodified
+and is not documented here:
+refer to the linked upstream documentation.
+
+These values are not necessarily the defaults.
+
+```json
+{
+  "port": 80,
+  "log": {
+    "level": "info",
+    "env": "space",
+    "service": "laser",
+    "system": "deathstar"
+  },
+  "koa": {
+    "dependencyInjection": {
+      "requestIdParamName": "id",
+      "disable": false,
+    },
+    "error": {
+      "isServerErrorExposed": true,
+      "disable": false,
+    },
+    "health": {
+      "disable": false,
+    },
+    "status": {
+      "disable": false,
+    },
+    "root": {
+      "data": {},
+      "disable": false,
+    },
+    "robots": {
+      "rule": "disallow",
+      "rules": {
+        "disallow": ['User-agent: *', 'Disallow: /']
+      },
+      "disable": false
+    },
+    "requestId": {
+      "reqHeader": "x-request-id",
+      "resHeader": "x-request-id",
+      "paramName": "id",
+      "disable": false
+    },
+    "favicon": {
+      "path": "/path/to/favicon.ico",
+      "disable": false
+    },
+    "conditionalGet": {
+      "disable": false
+    },
+    "cors": {
+      "disable": false
+    },
+    "etag": {
+      "disable": false
+    },
+    "helmet": {
+      "disable": false
+    },
+    "logger": {
+      "disable": false
+    }
+  }
+}
+```
 
 [Awilix]: https://github.com/jeffijoe/awilix
+[Boom]: https://github.com/hapijs/boom
 [confit]: https://github.com/krakenjs/confit
 [Logger]:  https://github.com/meltwater/mlabs-logger
 [Health Monitor]: https://github.com/meltwater/mlabs-health/tree/master/docs#createhealthmonitortargets-options

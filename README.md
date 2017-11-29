@@ -23,7 +23,8 @@ A minimal example is provided in [`server.js`](./examples/server.js).
 ### Middleware
 
 All middleware is enabled by default
-but may be disabled or configured as needed.
+but may be disabled or configured as needed:
+see [Config and Middleware](./docs#configandmiddleware)
 
 - [`conditionalGet`]: Conditional GET support.
 - [`cors`]: Enable CORS.
@@ -33,11 +34,15 @@ but may be disabled or configured as needed.
 - [`favicon`]: Serve a default favicon.
 - [`helmet`]: Security middleware.
 - [`logger`]: Log all requests.
-- `requestId`: Read `x-request-id` header and add to `ctx.state`.
-- `health`: Check health and serve status at `/health`.
+- `requestId`: Pass along `x-request-id` header.
+- `health`: Check health at `/health`.
 - `status`: Serve health status at `/status`.
 - `root`: Serve `package.json` at `/`.
 - `robots`: Serve `/robots.txt`.
+
+Additionally,
+a [standalone healthy middleware](./docs#koahealthyoptions) is provided
+for API health endpoints.
 
 [`conditionalGet`]: https://github.com/koajs/conditional-get
 [`cors`]: https://github.com/koajs/cors
@@ -68,7 +73,7 @@ $ yarn add awilix koa @meltwater/mlabs-koa
 
 **See the complete [API documentation](./docs) and [working examples](./examples).**
 
-Bootstrap a server.
+Bootstrap and start a server.
 
 This assumes `createDependencies` is provided
 by your application along with a config folder
