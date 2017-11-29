@@ -270,28 +270,28 @@ These values are not necessarily the defaults.
   "koa": {
     "dependencyInjection": {
       "requestIdParamName": "id",
-      "disable": false,
+      "disable": false
     },
     "error": {
       "isServerErrorExposed": true,
-      "disable": false,
+      "disable": false
     },
     "health": {
       "path": "/health",
-      "disable": false,
+      "disable": false
     },
     "status": {
       "path": "/status",
-      "disable": false,
+      "disable": false
     },
     "root": {
       "data": {},
-      "disable": false,
+      "disable": false
     },
     "robots": {
       "rule": "disallow",
       "rules": {
-        "disallow": ['User-agent: *', 'Disallow: /']
+        "disallow": ["User-agent: *", "Disallow: /"]
       },
       "disable": false
     },
