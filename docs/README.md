@@ -24,7 +24,7 @@ Provide configuration and dependencies to run the Koa server.
 1. `options` (*object*):
     - `configPath` (*string* **required**):
       Full path to the configuration directory.
-      See [Middleware and Config](#configandmiddleware) below.
+      See [Middleware and Config](#config-and-middleware) below.
     - `createDependencies` (*function* **required**):
       Function which takes a [confit] config object
       and returns an [Awilix] container.
@@ -91,13 +91,10 @@ const createDependencies = ({log, config}) => {
   container.register({
     log: asValue(log),
     healthMethods: asValue({health: createHealthy()}),
+    healthMonitor: asFunction(createHealthMonitor).singleton(),
     start: asFunction(createStart).singleton(),
     stop: asFunction(createStop).singleton(),
     app: asFunction(createApp).singleton()
-  })
-
-  container.register({
-    healthMonitor: asFunction(createHealthMonitor).singleton()
   })
 
   return container
@@ -131,6 +128,7 @@ so no config options are required.
 
 The port number to run the server on.
 Override with `PORT`.
+Default is `80`.
 
 #### `log`
 
@@ -150,11 +148,9 @@ each property is passed to the corresponding middleware.
 
 All Middleware configuration takes an additional boolean
 property `disable` which may be set to skip loading the middleware.
-
 Third party middleware configuration is documented on
 the corresponding project:
 see the [links in the README](../README.md#middleware).
-
 Custom middleware configuration is documented below.
 
 ##### `dependencyInjection`
@@ -171,8 +167,8 @@ Errors are sent as a response in the standard format:
 ```json
 {
   "error": {
-    "error": 'Internal Server Error',
-    "message": 'On fire!',
+    "error": "Internal Server Error",
+    "message": "On fire!",
     "data": {"isOnFire": true},
     "status": 500,
     "statusCode": 500

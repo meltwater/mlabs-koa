@@ -9,10 +9,8 @@
 ## Description
 
 Koa middleware suite and server bootstrapper.
-
 Wires up configuration to dependencies and creates
 a production ready Koa server will a full middleware stack.
-
 Uses [confit] for configuration and [Awilix] for dependency injection.
 
 A minimal example is provided in [`server.js`](./examples/server.js).
@@ -24,7 +22,7 @@ A minimal example is provided in [`server.js`](./examples/server.js).
 
 All middleware is enabled by default
 but may be disabled or configured as needed:
-see [Config and Middleware](./docs#configandmiddleware)
+see [Config and Middleware](./docs#config-and-middleware)
 
 - [`conditionalGet`]: Conditional GET support.
 - [`cors`]: Enable CORS.

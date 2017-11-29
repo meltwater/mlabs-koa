@@ -45,13 +45,10 @@ const createDependencies = log => ({config}) => {
   container.register({
     log: asValue(log),
     healthMethods: asValue({health: createHealthy()}),
+    healthMonitor: asFunction(createHealthMonitor).singleton(),
     start: asFunction(createStart).singleton(),
     stop: asFunction(createStop).singleton(),
     app: asFunction(createApp).singleton()
-  })
-
-  container.register({
-    healthMonitor: asFunction(createHealthMonitor).singleton()
   })
 
   container.register({
