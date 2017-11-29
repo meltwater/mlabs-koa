@@ -174,13 +174,11 @@ Errors are sent as a response in the standard format:
 
 ```json
 {
-  "error": {
-    "error": "Internal Server Error",
-    "message": "On fire!",
-    "data": {"isOnFire": true},
-    "status": 500,
-    "statusCode": 500
-  }
+  "error": "Internal Server Error",
+  "message": "On fire!",
+  "data": {"isOnFire": true},
+  "status": 500,
+  "statusCode": 500
 }
 ```
 
