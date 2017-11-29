@@ -18,6 +18,10 @@ import { createServer } from '@meltwater/mlabs-koa'
 ### `createServer(options)`
 
 Provide configuration and dependencies to run the Koa server.
+Creates a [Logger], mounts the app and all enabled middleware,
+and controls process lifecycle.
+An [Awilix] container will be scoped for each request
+under `ctx.state.container`.
 
 #### Arguments
 
@@ -155,7 +159,11 @@ Custom middleware configuration is documented below.
 
 ##### `dependencyInjection`
 
-TODO
+_The [Awilix] container is scoped per request
+independently of this middleware under `ctx.state.container`._
+
+For each request, registers `log` and `reqId` in the scoped container.
+Also sets `ctx.state.log` and `ctx.state.reqId`.
 
 ##### `error`
 
