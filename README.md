@@ -13,6 +13,10 @@ Wires up configuration to dependencies and creates
 a production ready Koa server will a full middleware stack.
 Uses [confit] for configuration and [Awilix] for dependency injection.
 
+Koa applications built with this package focus on business logic, not boilerplate:
+simply provide a set of dependencies, their configuration, and the Koa routes
+for handling requests.
+
 A minimal example is provided in [`server.js`](./examples/server.js).
 
 [Awilix]: https://github.com/jeffijoe/awilix
@@ -20,9 +24,17 @@ A minimal example is provided in [`server.js`](./examples/server.js).
 
 ### Middleware
 
-All middleware is enabled by default
+All middleware is enabled by default,
 but may be disabled or configured as needed:
 see [Config and Middleware](./docs#config-and-middleware)
+for full middleware documentation.
+
+Additionally,
+a [standalone healthy middleware](./docs#koahealthyoptions) is provided
+for API health endpoints.
+
+The default middleware stack includes custom middleware
+and third party middleware (explicitly linked below).
 
 - [`conditionalGet`]: Conditional GET support.
 - [`cors`]: Enable CORS.
@@ -37,10 +49,6 @@ see [Config and Middleware](./docs#config-and-middleware)
 - `status`: Serve health status at `/status`.
 - `root`: Serve `package.json` at `/`.
 - `robots`: Serve `/robots.txt`.
-
-Additionally,
-a [standalone healthy middleware](./docs#koahealthyoptions) is provided
-for API health endpoints.
 
 [`conditionalGet`]: https://github.com/koajs/conditional-get
 [`cors`]: https://github.com/koajs/cors

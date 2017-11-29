@@ -18,9 +18,9 @@ const createStart = ({log, healthMonitor}) => async () => {
   healthLogging({log, healthMonitor})
 }
 
-const createStop = ({log}) => async () => {}
+const createStop = () => async () => {}
 
-const createApp = ({log}) => {
+const createApp = () => {
   const app = new Koa()
   const router = new Router()
 
@@ -39,6 +39,9 @@ const createPuppies = ({log, reqId}) => {
   return {health}
 }
 
+// NOTE: For this example, log comes from @meltwater/examplr.
+// In a real system, createDependencies takes no arguments
+// and log is passed in at the same level as config.
 const createDependencies = log => ({config}) => {
   const container = createContainer()
 
@@ -58,6 +61,8 @@ const createDependencies = log => ({config}) => {
   return container
 }
 
+// NOTE: This example does not use config files,
+// but must still pass a configPath.
 export default ({log}) => (port = 9000) => {
   const { configFactory, run } = createServer({
     configPath: __dirname,

@@ -18,7 +18,7 @@ import { createServer } from '@meltwater/mlabs-koa'
 ### `createServer(options)`
 
 Provide configuration and dependencies to run the Koa server.
-Creates a [Logger], mounts the app and all enabled middleware,
+Creates a [Logger], mounts the app with all enabled middleware,
 and controls process lifecycle.
 An [Awilix] container will be scoped for each request
 under `ctx.state.container`.
@@ -30,7 +30,8 @@ under `ctx.state.container`.
       Full path to the configuration directory.
       See [Middleware and Config](#config-and-middleware) below.
     - `createDependencies` (*function* **required**):
-      Function which takes a [confit] config object
+      Function which takes an object `{config, log}`
+      (a [Logger] and a [confit] config object)
       and returns an [Awilix] container.
       See [Dependencies](#dependencies) below.
 
@@ -42,6 +43,17 @@ under `ctx.state.container`.
   - `run` (*function*):
     Takes a single argument, the confit config factory,
     and starts the Koa server.
+
+#### Example
+
+```js
+const { configFactory, run } = createServer({
+  configPath: path.resolve(__dirname, 'config'),
+  createDependencies
+})
+
+run(configFactory)
+```
 
 ---
 ### `koaHealthy(options)`
@@ -89,6 +101,8 @@ The following dependencies must be registered in `createDependencies`:
 A minimal example (taken from [`server.js`](../examples/server.js)) looks like
 
 ```js
+import { createContainer, asValue, asFunction } from 'awilix'
+
 const createDependencies = ({log, config}) => {
   const container = createContainer()
 
@@ -106,6 +120,8 @@ const createDependencies = ({log, config}) => {
 ```
 
 ## Config and Middleware
+
+_Middleware behavior is defined below along with it's configuration._
 
 The `configPath` must point to a path containing a set of [confit] config files.
 
@@ -188,21 +204,26 @@ Additional data passed to Boom errors is set under `error.data`.
   to client in response body.
   Default: true.
 
-##### `health`
-
-Serve `health` healthy status at `GET /health`.
-and individual healthy status at `GET /health/:name`.
-
-- `path`: Path to serve health.
-  Default: `/health`
-
 ##### `status`
 
 Serve `health` monitor status at `GET /status`
 and individual health monitor status at `GET /status/:name`.
 
+The status is retrieved from `healthMonitor[name].status()`.
+
 - `path`: Path to serve status.
   Default: `/status`
+
+##### `health`
+
+Serve `health` healthy status at `GET /health`
+and individual healthy status at `GET /health/:name`.
+
+The boolean health status is computed
+from `healthMethods[name](healthMonitor[name].status())`.
+
+- `path`: Path to serve health.
+  Default: `/health`
 
 ##### `root`
 
@@ -227,7 +248,7 @@ Disallows all by default.
 
 Looks for a request id in the state or request header,
 otherwise generates a new one to save in the state.
-Passes the request id along in the responses headers.
+Passes the request id along in the response headers.
 
 - `reqHeader`: Request header to use for the request id.
   Default: `x-request-id`.
