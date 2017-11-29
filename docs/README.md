@@ -273,9 +273,11 @@ These values are not necessarily the defaults.
       "disable": false,
     },
     "health": {
+      "path": "/health",
       "disable": false,
     },
     "status": {
+      "path": "/status",
       "disable": false,
     },
     "root": {
