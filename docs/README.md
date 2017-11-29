@@ -161,6 +161,7 @@ The following additional properties will be added if defined:
 - `system`: Adds `@system` to logs (override with `LOG_SYSTEM`).
   Default: automatically determined from the package name.
 
+---
 #### `koa`
 
 Koa middleware configuration object:
@@ -171,7 +172,8 @@ property `disable` which may be set to skip loading the middleware.
 Third party middleware configuration is documented on
 the corresponding project:
 see the [links in the README](../README.md#middleware).
-Custom middleware configuration is documented below.
+
+Each custom middleware configuration is documented below.
 
 ---
 ##### `dependencyInjection`
