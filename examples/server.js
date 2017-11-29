@@ -71,7 +71,5 @@ export default ({log}) => (port = 9000) => {
 
   configFactory.addOverride({port})
 
-  // NOTE: Signal handling is caught by @meltwater/examplr,
-  // thus stop and close lifecycle events do not work in the example.
   run(configFactory)
 }
