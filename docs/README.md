@@ -173,6 +173,7 @@ the corresponding project:
 see the [links in the README](../README.md#middleware).
 Custom middleware configuration is documented below.
 
+---
 ##### `dependencyInjection`
 
 _The [Awilix] container is scoped per request
@@ -181,7 +182,12 @@ independently of this middleware under `ctx.state.container`._
 For each request, registers `log` and `reqId` in the scoped container.
 Also sets `ctx.state.log` and `ctx.state.reqId`.
 
+---
 ##### `error`
+
+- `isServerErrorExposed`: Expose server errors (5xx status codes)
+  to client in response body.
+  Default: true.
 
 _All errors are logged independently of this middleware._
 
@@ -200,21 +206,22 @@ Errors are sent as a response in the standard format:
 
 Additional data passed to Boom errors is set under `error.data`.
 
-- `isServerErrorExposed`: Expose server errors (5xx status codes)
-  to client in response body.
-  Default: true.
-
+---
 ##### `status`
+
+- `path`: Path to serve status.
+  Default: `/status`
 
 Serve `health` monitor status at `GET /status`
 and individual health monitor status at `GET /status/:name`.
 
 The status is retrieved from `healthMonitor[name].status()`.
 
-- `path`: Path to serve status.
-  Default: `/status`
-
+---
 ##### `health`
+
+- `path`: Path to serve health.
+  Default: `/health`
 
 Serve `health` healthy status at `GET /health`
 and individual healthy status at `GET /health/:name`.
@@ -222,20 +229,15 @@ and individual healthy status at `GET /health/:name`.
 The boolean health status is computed
 from `healthMethods[name](healthMonitor[name].status())`.
 
-- `path`: Path to serve health.
-  Default: `/health`
-
+---
 ##### `root`
-
-Serves a JSON document at `GET /`.
 
 - `data`: JSON object to serve.
 
-##### `robots`
+Serves a JSON document at `GET /`.
 
-Serves `GET /robots.txt`.
-Includes the rules `allow` and `disallow`.
-Disallows all by default.
+---
+##### `robots`
 
 - `rules`: Object containing named rules.
   Each property should be an array of strings,
@@ -244,11 +246,12 @@ Disallows all by default.
 - `rule`: Name of the rule to use from `rules`.
   Default: `disallow`.
 
-##### `requestId`
+Serves `GET /robots.txt`.
+Includes the rules `allow` and `disallow`.
+Disallows all by default.
 
-Looks for a request id in the state or request header,
-otherwise generates a new one to save in the state.
-Passes the request id along in the response headers.
+---
+##### `requestId`
 
 - `reqHeader`: Request header to use for the request id.
   Default: `x-request-id`.
@@ -259,6 +262,11 @@ Passes the request id along in the response headers.
 - `generator`: Synchronous function to generate new ids.
   Default: UUID version 4.
 
+Looks for a request id in the state or request header,
+otherwise generates a new one to save in the state.
+Passes the request id along in the response headers.
+
+---
 ##### `favicon`
 
 Takes configuration for [koa-favicon](https://github.com/koajs/favicon)
