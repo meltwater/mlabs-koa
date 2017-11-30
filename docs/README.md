@@ -181,8 +181,7 @@ Each custom middleware configuration is documented below.
 _The [Awilix] container is scoped per request
 independently of this middleware under `ctx.state.container`._
 
-For each request, registers `log` and `reqId` in the scoped container.
-Also sets `ctx.state.log` and `ctx.state.reqId`.
+For each request, registers `log` in the scoped container and sets `ctx.state.log`.
 
 ---
 ##### `error`
@@ -259,7 +258,7 @@ Disallows all by default.
 - `resHeader`: Response header to use for the request id.
   Default: `x-request-id`.
 - `paramName`: Request id will be stored or looked for in `ctx.state[paramName]`.
-  Default: `id`.
+  Default: `reqId`.
 - `generator`: Synchronous function to generate new ids.
   Default: UUID version 4.
 
@@ -326,7 +325,7 @@ These values are not necessarily the defaults.
     "requestId": {
       "reqHeader": "x-request-id",
       "resHeader": "x-request-id",
-      "paramName": "id",
+      "paramName": "reqId",
       "disable": false
     },
     "favicon": {
