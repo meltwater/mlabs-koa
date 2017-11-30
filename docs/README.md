@@ -187,13 +187,12 @@ Also sets `ctx.state.log` and `ctx.state.reqId`.
 ---
 ##### `error`
 
+- `isLogged`: Log all errors. Default: true.
 - `isServerErrorExposed`: Expose server errors (5xx status codes)
   to client in response body.
   Default: true.
 
-_All errors are logged independently of this middleware._
-
-Catches and wrap all errors as [Boom] errors.
+Catches, wraps, and logs all errors as [Boom] errors.
 Errors are sent as a response in the standard format:
 
 ```json
