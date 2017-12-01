@@ -175,18 +175,23 @@ see the [links in the README](../README.md#middleware).
 
 Each custom middleware configuration is documented below.
 
----
-##### `dependencyInjection`
+_The [Logger] is attached under `ctx.state.log`
+independently of any configuration below._
 
 _The [Awilix] container is scoped per request
 independently of this middleware under `ctx.state.container`._
 
-For each request, registers `log` in the scoped container and sets `ctx.state.log`.
+---
+##### `dependencyInjection`
+
+For each request, registers `log` and `reqId` in the scoped container.
 
 ---
 ##### `error`
 
-- `isLogged`: Log all errors. Default: true.
+- `isLogged`: Log all errors.
+  Works independently of the `disable` value.
+  Default: true.
 - `isServerErrorExposed`: Expose server errors (5xx status codes)
   to client in response body.
   Default: true.
@@ -205,6 +210,22 @@ Errors are sent as a response in the standard format:
 ```
 
 Additional data passed to Boom errors is set under `error.data`.
+
+---
+##### `logger`
+
+- `useProduction`: Use the production logger or the development one.
+  Default: infer from `NODE_ENV`.
+- `level`: Log level to log at.
+  Default: `info`.
+
+Logs the start and end of each request.
+
+In development, [koa-logger] is used and passed the configuration.
+In production, uses `ctx.state.log[level]`.
+
+Adds `reqId` to the logger attached to `ctx.state.reqId`;
+In production, also adds the property `http: {url, method, resTime, resSize}`.
 
 ---
 ##### `status`
@@ -296,7 +317,6 @@ These values are not necessarily the defaults.
   },
   "koa": {
     "dependencyInjection": {
-      "requestIdParamName": "id",
       "disable": false
     },
     "error": {
@@ -328,6 +348,10 @@ These values are not necessarily the defaults.
       "paramName": "reqId",
       "disable": false
     },
+    "logger": {
+      "useProduction": "true",
+      "disable": false
+    },
     "favicon": {
       "path": "/path/to/favicon.ico",
       "disable": false
@@ -342,9 +366,6 @@ These values are not necessarily the defaults.
       "disable": false
     },
     "helmet": {
-      "disable": false
-    },
-    "logger": {
       "disable": false
     }
   }

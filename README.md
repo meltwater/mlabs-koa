@@ -38,12 +38,13 @@ and third party middleware (explicitly linked below).
 
 - [`conditionalGet`]: Conditional GET support.
 - [`cors`]: Enable CORS.
-- `dependencyInjection`: Inject scoped `reqId` and `log` for each request.
+- `dependencyInjection`: Register scoped `reqId` and `log` for each request.
 - `error`: Error handling with [Boom].
 - [`etag`]: Add ETag to response.
 - [`favicon`]: Serve a default favicon.
 - [`helmet`]: Security middleware.
-- [`logger`]: Log all requests.
+- `logger`: Log all requests and inject a scoped logger into context.
+  Uses [koa-logger] in development and custom logging in production.
 - `requestId`: Pass along `x-request-id` header.
 - `health`: Check health at `/health`.
 - `status`: Serve health status at `/status`.
@@ -55,8 +56,8 @@ and third party middleware (explicitly linked below).
 [`etag`]: https://github.com/koajs/etag
 [`favicon`]: https://github.com/koajs/favicon
 [`helmet`]: https://github.com/venables/koa-helmet
-[`logger`]: https://github.com/koajs/logger
 [Boom]: https://github.com/hapijs/boom
+[koa-logger]: https://github.com/koajs/logger
 
 ## Installation
 
