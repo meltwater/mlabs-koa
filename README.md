@@ -45,6 +45,7 @@ and third party middleware (explicitly linked below).
 - [`helmet`]: Security middleware.
 - `logger`: Log all requests and inject a scoped logger into context.
   Uses [koa-logger] in development and custom logging in production.
+- `responseTime`: Set `x-response-time` header.
 - `requestId`: Pass along `x-request-id` header.
 - `health`: Check health at `/health`.
 - `status`: Serve health status at `/status`.

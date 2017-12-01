@@ -187,6 +187,14 @@ independently of this middleware under `ctx.state.container`._
 For each request, registers `log` and `reqId` in the scoped container.
 
 ---
+##### `responseTime`
+
+- `resHeader`: Response header to use for the response time.
+  Default: `x-response-time`.
+
+Sets the response time header in milliseconds.
+
+---
 ##### `error`
 
 - `isLogged`: Log all errors.
@@ -341,6 +349,9 @@ These values are not necessarily the defaults.
         "disallow": ["User-agent: *", "Disallow: /"]
       },
       "disable": false
+    },
+    "responseTime": {
+      "resHeader": "x-response-time"
     },
     "requestId": {
       "reqHeader": "x-request-id",
