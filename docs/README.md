@@ -232,7 +232,7 @@ Logs the start and end of each request.
 In development, [koa-logger] is used and passed the configuration.
 In production, uses `ctx.state.log[level]`.
 
-Adds `reqId` to the logger attached to `ctx.state.reqId`;
+Adds `reqId` to the logger attached to `ctx.state.reqId`.
 In production, also adds the property `http: {url, method, resTime, resSize}`.
 
 ---
@@ -389,3 +389,4 @@ These values are not necessarily the defaults.
 [Logger]:  https://github.com/meltwater/mlabs-logger
 [Health Monitor]: https://github.com/meltwater/mlabs-health/tree/master/docs#createhealthmonitortargets-options
 [createHealthy]: https://github.com/meltwater/mlabs-health/tree/master/docs#createhealthyoptions
+[koa-logger]: https://github.com/koajs/logger
