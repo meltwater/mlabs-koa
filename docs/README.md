@@ -360,6 +360,7 @@ These values are not necessarily the defaults.
       "disable": false
     },
     "logger": {
+      "level": "debug",
       "useProduction": "true",
       "disable": false
     },
