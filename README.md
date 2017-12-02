@@ -38,19 +38,19 @@ and third party middleware (explicitly linked below).
 
 - [`conditionalGet`]: Conditional GET support.
 - [`cors`]: Enable CORS.
-- `dependencyInjection`: Register scoped `reqId` and `log` for each request.
-- `error`: Error handling with [Boom].
 - [`etag`]: Add ETag to response.
 - [`favicon`]: Serve a default favicon.
 - [`helmet`]: Security middleware.
-- `logger`: Log all requests and inject a scoped logger into context.
-  Uses [koa-logger] in development and custom logging in production.
-- `responseTime`: Set `x-response-time` header.
-- `requestId`: Pass along `x-request-id` header.
+- `dependencyInjection`: Register scoped `reqId` and `log` for each request.
+- `error`: Error handling with [Boom].
 - `health`: Check health at `/health`.
-- `status`: Serve health status at `/status`.
-- `root`: Serve `package.json` at `/`.
+- `logger`: Log all requests and inject a scoped logger into context.
+  (Uses [koa-logger] in development).
+- `requestId`: Pass along `x-request-id` header.
+- `responseTime`: Set `x-response-time` header.
 - `robots`: Serve `/robots.txt`.
+- `root`: Serve `package.json` at `/`.
+- `status`: Serve health status at `/status`.
 
 [`conditionalGet`]: https://github.com/koajs/conditional-get
 [`cors`]: https://github.com/koajs/cors
