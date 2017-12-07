@@ -65,7 +65,8 @@
   "ava": {
     "files": [
       "**/*.spec.js",
-      "!dist/**/*"
+      "!dist/**/*",
+      "!package/**/*"
     ],
     "require": [
       "babel-register"
@@ -81,6 +82,7 @@
       "lib/bootstrapper.js",
       "lib/server.js",
       "dist/**/*.js",
+      "package/**/*.js",
       "examples/**/*.js",
       "**/*.spec.js"
     ],
