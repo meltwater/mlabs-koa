@@ -272,7 +272,7 @@ Includes the rules `allow` and `disallow`.
 Disallows all by default.
 
 ---
-##### `health`
+##### `ping`
 
 - `path`: Path to serve ping.
   Default: `/ping`
