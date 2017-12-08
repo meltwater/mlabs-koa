@@ -59,11 +59,13 @@ run(configFactory)
 ### `koaHealthy(options)`
 
 Standalone middleware that always sets either a 200 or 503 status code.
+It is meant to be used for an API health endpoint
+to verify minimal connectivity.
+
 If the request accepts JSON, it will set the body to either
 `{"healthy": true}` or `{"healthy": false}`.
 
-This middleware is not mounted anywhere by default,
-it is meant to be used for an API health endpoint.
+This middleware is mounted at `/ping` by default.
 
 #### Arguments
 
@@ -272,6 +274,15 @@ Disallows all by default.
 ---
 ##### `health`
 
+- `path`: Path to serve ping.
+  Default: `/ping`
+- `isHealthy`: If the ping returns success.
+
+Serves ping at `GET /ping` using [`koaHealthy`](#koahealthyoptions).
+
+---
+##### `health`
+
 - `path`: Path to serve health.
   Default: `/health`
 
@@ -363,6 +374,11 @@ These values are not necessarily the defaults.
       "rules": {
         "disallow": ["User-agent: *", "Disallow: /"]
       },
+      "disable": false
+    },
+    "ping": {
+      "path": "/ping",
+      "isHealthy": true,
       "disable": false
     },
     "health": {

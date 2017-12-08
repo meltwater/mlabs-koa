@@ -48,6 +48,7 @@ and third party middleware (explicitly linked below).
 - [`etag`]: Add ETag to response.
 - [`favicon`]: Serve a default favicon.
 - `robots`: Serve `/robots.txt`.
+- `ping`: Serve minimal connection check at `/ping`.
 - `health`: Check health at `/health`.
 - `status`: Serve health status at `/status`.
 - `root`: Serve `package.json` at `/`.
