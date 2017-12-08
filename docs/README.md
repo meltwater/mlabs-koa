@@ -18,7 +18,7 @@ import { createServer } from '@meltwater/mlabs-koa'
 ### `createServer(options)`
 
 Provide configuration and dependencies to run the Koa server.
-Creates a [Logger], mounts the app with all enabled middleware,
+Creates a [logger], mounts the app with all enabled middleware,
 and controls process lifecycle.
 An [Awilix] container will be scoped for each request
 under `ctx.state.container`.
@@ -31,7 +31,7 @@ under `ctx.state.container`.
       See [Middleware and Config](#config-and-middleware) below.
     - `createDependencies` (*function* **required**):
       Function which takes an object `{config, log}`
-      (a [Logger] and a [confit] config object)
+      (a [logger] and a [confit] config object)
       and returns an [Awilix] container.
       See [Dependencies](#dependencies) below.
 
@@ -79,12 +79,12 @@ it is meant to be used for an API health endpoint.
 ## Dependencies
 
 The `createDependencies` function will be passed an object with
-`log` (a [Logger]) and `config` (a [confit] config object).
+`log` (a [logger]) and `config` (a [confit] config object).
 Use `config.get('a:b:c')` to pass configuration to dependencies.
 
 The following dependencies must be registered in `createDependencies`:
 
-- `log`: A [Logger] instance.
+- `log`: A [logger] instance.
 - `healthMonitor`: A [Health Monitor].
   Each health check will be called with the [Awilix] container.
 - `healthMethods`: Health methods to determine health status
@@ -152,7 +152,7 @@ Default is `80`.
 
 #### `log`
 
-Object passed directly to the [Logger] `createLogger` function.
+Object passed directly to the [logger] `createLogger` function.
 The following additional properties will be added if defined:
 
 - `env`: Adds `@env` to logs (override with `LOG_ENV`).
@@ -173,13 +173,11 @@ Third party middleware configuration is documented on
 the corresponding project:
 see the [links in the README](../README.md#middleware).
 
-Each custom middleware configuration is documented below.
-
-_The [Logger] is attached under `ctx.state.log`
+_The [logger] is attached under `ctx.state.log`
+and the [Awilix] container is scoped per request under `ctx.state.container`
 independently of any configuration below._
 
-_The [Awilix] container is scoped per request
-independently of this middleware under `ctx.state.container`._
+Each custom middleware configuration is documented below.
 
 ---
 ##### `dependencyInjection`
@@ -205,6 +203,7 @@ Sets the response time header in milliseconds.
   Default: true.
 
 Catches, wraps, and logs all errors as [Boom] errors.
+Additional data passed to Boom errors is set under `data`.
 Errors are sent as a response in the standard format:
 
 ```json
@@ -216,8 +215,6 @@ Errors are sent as a response in the standard format:
   "statusCode": 500
 }
 ```
-
-Additional data passed to Boom errors is set under `error.data`.
 
 ---
 ##### `logger`
@@ -241,8 +238,8 @@ In production, also adds the property `http: {url, method, resTime, resSize}`.
 - `path`: Path to serve status.
   Default: `/status`
 
-Serve `health` monitor status at `GET /status`
-and individual health monitor status at `GET /status/:name`.
+Serves health monitor status at `GET /status`
+and each individual health monitor status at `GET /status/:name`.
 
 The status is retrieved from `healthMonitor[name].status()`.
 
@@ -252,8 +249,8 @@ The status is retrieved from `healthMonitor[name].status()`.
 - `path`: Path to serve health.
   Default: `/health`
 
-Serve `health` healthy status at `GET /health`
-and individual healthy status at `GET /health/:name`.
+Serves healthy status at `GET /health`
+and each individual healthy status at `GET /health/:name`.
 
 The boolean health status is computed
 from `healthMethods[name](healthMonitor[name].status())`.
@@ -387,7 +384,7 @@ These values are not necessarily the defaults.
 [Awilix]: https://github.com/jeffijoe/awilix
 [Boom]: https://github.com/hapijs/boom
 [confit]: https://github.com/krakenjs/confit
-[Logger]:  https://github.com/meltwater/mlabs-logger
+[logger]:  https://github.com/meltwater/mlabs-logger
 [Health Monitor]: https://github.com/meltwater/mlabs-health/tree/master/docs#createhealthmonitortargets-options
 [createHealthy]: https://github.com/meltwater/mlabs-health/tree/master/docs#createhealthyoptions
 [koa-logger]: https://github.com/koajs/logger
