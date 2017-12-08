@@ -36,21 +36,21 @@ for API health endpoints.
 The default middleware stack includes custom middleware
 and third party middleware (explicitly linked below).
 
-- [`conditionalGet`]: Conditional GET support.
-- [`cors`]: Enable CORS.
-- [`etag`]: Add ETag to response.
-- [`favicon`]: Serve a default favicon.
-- [`helmet`]: Security middleware.
-- `dependencyInjection`: Register scoped `reqId` and `log` for each request.
-- `error`: Error handling with [Boom].
-- `health`: Check health at `/health`.
+- `responseTime`: Set `x-response-time` header.
+- `requestId`: Pass along `x-request-id` header.
 - `logger`: Log all requests and inject a scoped logger into context.
   (Uses [koa-logger] in development).
-- `requestId`: Pass along `x-request-id` header.
-- `responseTime`: Set `x-response-time` header.
+- `error`: Error handling with [Boom].
+- `dependencyInjection`: Register scoped `reqId` and `log` for each request.
+- [`helmet`]: Security middleware.
+- [`cors`]: Enable CORS.
+- [`conditionalGet`]: Conditional GET support.
+- [`etag`]: Add ETag to response.
+- [`favicon`]: Serve a default favicon.
 - `robots`: Serve `/robots.txt`.
-- `root`: Serve `package.json` at `/`.
+- `health`: Check health at `/health`.
 - `status`: Serve health status at `/status`.
+- `root`: Serve `package.json` at `/`.
 
 [`conditionalGet`]: https://github.com/koajs/conditional-get
 [`cors`]: https://github.com/koajs/cors

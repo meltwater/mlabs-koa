@@ -180,17 +180,44 @@ independently of any configuration below._
 Each custom middleware configuration is documented below.
 
 ---
-##### `dependencyInjection`
-
-For each request, registers `log` and `reqId` in the scoped container.
-
----
 ##### `responseTime`
 
 - `resHeader`: Response header to use for the response time.
   Default: `x-response-time`.
 
 Sets the response time header in milliseconds.
+
+---
+##### `requestId`
+
+- `reqHeader`: Request header to use for the request id.
+  Default: `x-request-id`.
+- `resHeader`: Response header to use for the request id.
+  Default: `x-request-id`.
+- `paramName`: Request id will be stored or looked for in `ctx.state[paramName]`.
+  Default: `reqId`.
+- `generator`: Synchronous function to generate new ids.
+  Default: UUID version 4.
+
+Looks for a request id in the state or request header,
+otherwise generates a new one to save in the state.
+Passes the request id along in the response headers.
+
+---
+##### `logger`
+
+- `useProduction`: Use the production logger or the development one.
+  Default: infer from `NODE_ENV`.
+- `level`: Log level to log at.
+  Default: `info`.
+
+Logs the start and end of each request.
+
+In development, [koa-logger] is used and passed the configuration.
+In production, uses `ctx.state.log[level]`.
+
+Adds `reqId` to the logger attached to `ctx.state.reqId`.
+In production, also adds the property `http: {url, method, resTime, resSize}`.
 
 ---
 ##### `error`
@@ -217,50 +244,16 @@ Errors are sent as a response in the standard format:
 ```
 
 ---
-##### `logger`
+##### `dependencyInjection`
 
-- `useProduction`: Use the production logger or the development one.
-  Default: infer from `NODE_ENV`.
-- `level`: Log level to log at.
-  Default: `info`.
-
-Logs the start and end of each request.
-
-In development, [koa-logger] is used and passed the configuration.
-In production, uses `ctx.state.log[level]`.
-
-Adds `reqId` to the logger attached to `ctx.state.reqId`.
-In production, also adds the property `http: {url, method, resTime, resSize}`.
+For each request, registers `log` and `reqId` in the scoped container.
 
 ---
-##### `status`
+##### `favicon`
 
-- `path`: Path to serve status.
-  Default: `/status`
-
-Serves health monitor status at `GET /status`
-and each individual health monitor status at `GET /status/:name`.
-
-The status is retrieved from `healthMonitor[name].status()`.
-
----
-##### `health`
-
-- `path`: Path to serve health.
-  Default: `/health`
-
-Serves healthy status at `GET /health`
-and each individual healthy status at `GET /health/:name`.
-
-The boolean health status is computed
-from `healthMethods[name](healthMonitor[name].status())`.
-
----
-##### `root`
-
-- `data`: JSON object to serve.
-
-Serves a JSON document at `GET /`.
+Takes configuration for [koa-favicon](https://github.com/koajs/favicon)
+with the additional property `path` which should be the full path
+to the favicon file.
 
 ---
 ##### `robots`
@@ -277,27 +270,34 @@ Includes the rules `allow` and `disallow`.
 Disallows all by default.
 
 ---
-##### `requestId`
+##### `health`
 
-- `reqHeader`: Request header to use for the request id.
-  Default: `x-request-id`.
-- `resHeader`: Response header to use for the request id.
-  Default: `x-request-id`.
-- `paramName`: Request id will be stored or looked for in `ctx.state[paramName]`.
-  Default: `reqId`.
-- `generator`: Synchronous function to generate new ids.
-  Default: UUID version 4.
+- `path`: Path to serve health.
+  Default: `/health`
 
-Looks for a request id in the state or request header,
-otherwise generates a new one to save in the state.
-Passes the request id along in the response headers.
+Serves healthy status at `GET /health`
+and each individual healthy status at `GET /health/:name`.
+
+The boolean health status is computed
+from `healthMethods[name](healthMonitor[name].status())`.
 
 ---
-##### `favicon`
+##### `status`
 
-Takes configuration for [koa-favicon](https://github.com/koajs/favicon)
-with the additional property `path` which should be the full path
-to the favicon file.
+- `path`: Path to serve status.
+  Default: `/status`
+
+Serves health monitor status at `GET /status`
+and each individual health monitor status at `GET /status/:name`.
+
+The status is retrieved from `healthMonitor[name].status()`.
+
+---
+##### `root`
+
+- `data`: JSON object to serve.
+
+Serves a JSON document at `GET /`.
 
 ### Example
 
@@ -321,32 +321,6 @@ These values are not necessarily the defaults.
     "system": "deathstar"
   },
   "koa": {
-    "dependencyInjection": {
-      "disable": false
-    },
-    "error": {
-      "isServerErrorExposed": true,
-      "disable": false
-    },
-    "health": {
-      "path": "/health",
-      "disable": false
-    },
-    "status": {
-      "path": "/status",
-      "disable": false
-    },
-    "root": {
-      "data": {},
-      "disable": false
-    },
-    "robots": {
-      "rule": "disallow",
-      "rules": {
-        "disallow": ["User-agent: *", "Disallow: /"]
-      },
-      "disable": false
-    },
     "responseTime": {
       "resHeader": "x-response-time"
     },
@@ -361,20 +335,46 @@ These values are not necessarily the defaults.
       "useProduction": "true",
       "disable": false
     },
-    "favicon": {
-      "path": "/path/to/favicon.ico",
+    "error": {
+      "isServerErrorExposed": true,
       "disable": false
     },
-    "conditionalGet": {
+    "dependencyInjection": {
+      "disable": false
+    },
+    "helmet": {
       "disable": false
     },
     "cors": {
       "disable": false
     },
+    "conditionalGet": {
+      "disable": false
+    },
     "etag": {
       "disable": false
     },
-    "helmet": {
+    "favicon": {
+      "path": "/path/to/favicon.ico",
+      "disable": false
+    },
+    "robots": {
+      "rule": "disallow",
+      "rules": {
+        "disallow": ["User-agent: *", "Disallow: /"]
+      },
+      "disable": false
+    },
+    "health": {
+      "path": "/health",
+      "disable": false
+    },
+    "status": {
+      "path": "/status",
+      "disable": false
+    },
+    "root": {
+      "data": {},
       "disable": false
     }
   }
