@@ -275,7 +275,7 @@ Disallows all by default.
 ##### `ping`
 
 - `path`: Path to serve ping.
-  Default: `/ping`
+  Default: `/ping`.
 - `isHealthy`: If the ping returns success.
 
 Serves ping at `GET /ping` using [`koaHealthy`](#koahealthyoptions).
