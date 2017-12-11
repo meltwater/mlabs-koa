@@ -120,7 +120,7 @@
     "@meltwater/examplr": "^3.0.0",
     "@meltwater/mlabs-health": "^1.0.0",
     "ava": "^0.24.0",
-    "awilix": "^3.0.0-rc.3",
+    "awilix": "^3.0.0",
     "babel-cli": "^6.18.0",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-env": "^1.1.4",
