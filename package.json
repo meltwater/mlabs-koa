@@ -96,6 +96,7 @@
     "node": ">=8.9.0"
   },
   "peerDependencies": {
+    "@meltwater/mlabs-health": "^1.0",
     "awilix": "^3.0",
     "koa": "^2.0"
   },
