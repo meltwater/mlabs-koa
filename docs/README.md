@@ -162,7 +162,8 @@ Default is `80`.
 #### `log`
 
 Object passed directly to the [logger] `createLogger` function.
-The following additional properties will be added if defined:
+The log level may be overridden with `LOG_LEVEL`.
+When not in development, these additional properties will be added if defined:
 
 - `env`: Adds `@env` to logs (override with `LOG_ENV`).
 - `service`: Adds `@service` to logs (override with `LOG_SERVICE`).
