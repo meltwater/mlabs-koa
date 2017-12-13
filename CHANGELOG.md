@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 
 - Load all config files under `env.d` and `local.d`.
+- Load contents of files under `secret.d` into config.
 
 ## [1.1.0] / 2017-12-12
 

@@ -141,6 +141,9 @@ the following is true:
 - If `local.d` exists, all JSON files under that directory
   will be loaded in alphabetical order as final override files.
   Then, if `local.json` exists, it will be loaded as a final override file.
+- If `secret.d` exists, the whitespace-trimmed contents of each file
+  under that directory will be added to the config under `secret`
+  with its key equal to the filename.
 - The key `config` will contain the `configPath`.
 - The key `pkg` will contain the contents of `package.json` from the
   current working directory.
