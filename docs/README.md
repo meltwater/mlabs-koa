@@ -135,13 +135,13 @@ In addition to the standard behavior of [confit],
 the following is true:
 
 - The default config file is named `default.json` (not `config.json`).
-- If `env.d` exists, all JSON files under that directory
+- If `env.d` exists, all non-hidden JSON files under that directory
   will be loaded in alphabetical order as override files.
   Then, if `env.json` exists, it will be loaded as an override file.
-- If `local.d` exists, all JSON files under that directory
+- If `local.d` exists, all non-hidden JSON files under that directory
   will be loaded in alphabetical order as final override files.
   Then, if `local.json` exists, it will be loaded as a final override file.
-- If `secret.d` exists, the whitespace-trimmed contents of each file
+- If `secret.d` exists, the whitespace-trimmed contents of each non-hidden file
   under that directory will be added to the config under `secret`
   with its key equal to the filename.
 - The key `config` will contain the `configPath`.
