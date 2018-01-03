@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [1.4.1] / 2018-01-03
 
-## Changed
+### Changed
 
 - Update to [makenew-node-lib] v4.1.9.
 - Update chokidar to version 2.
