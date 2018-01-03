@@ -14,13 +14,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [1.4.0] / 2017-12-14
 
-## Changed
+### Changed
 
 - Do not load hidden files (dotfiles) as secrets of configs.
 
 ## [1.3.1] / 2017-12-14
 
-## Fixed
+### Fixed
 
 - Watching recursive config paths on Linux.
 
