@@ -105,7 +105,7 @@
     "@meltwater/mlabs-logger": "^3.1.0",
     "@meltwater/phi": "^1.0.0",
     "boom": "^7.1.1",
-    "chokidar": "^1.7.0",
+    "chokidar": "^2.0.0",
     "confit": "^2.2.1",
     "koa-conditional-get": "^2.0.0",
     "koa-etag": "^3.0.0",
