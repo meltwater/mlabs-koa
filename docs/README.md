@@ -43,6 +43,10 @@ under `ctx.state.container`.
   - `run` (*function*):
     Takes a single argument, the confit config factory,
     and starts the Koa server.
+  - `exit` (*function*):
+    Takes a single argument, the error, then immediately logs the error
+    and exits the process with exit code 2.
+    If no error is passed, the exit code will be 0.
 
 #### Example
 
