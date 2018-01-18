@@ -222,6 +222,8 @@ Passes the request id along in the response headers.
 
 - `useProduction`: Use the production logger or the development one.
   Default: infer from `NODE_ENV`.
+- `reqNameHeader`: Header to use for the `reqName` to log.
+  Default: `x-request-name`.
 - `level`: Log level to log at.
   Default: `info`.
 
@@ -230,7 +232,8 @@ Logs the start and end of each request.
 In development, [koa-logger] is used and passed the configuration.
 In production, uses `ctx.state.log[level]`.
 
-Adds `reqId` to the logger attached to `ctx.state.reqId`.
+Logs the properties `reqId` from `ctx.state.reqId`
+and `reqName` from the header defined by `reqNameHeader`.
 In production, also adds the property `http: {url, method, resTime, resSize}`.
 
 ---
@@ -356,6 +359,7 @@ These values are not necessarily the defaults.
     "logger": {
       "level": "debug",
       "useProduction": "true",
+      "reqNameHeader": "x-request-name",
       "disable": false
     },
     "error": {
