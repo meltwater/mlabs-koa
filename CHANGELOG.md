@@ -5,6 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [1.6.0] / 2018-01-18
+
+### Added
+
+- Log `reqName` from `x-request-name` header.
+- Log `statusCode` under `http` property.
+
 ## [1.5.0] / 2018-01-10
 
 ### Added
@@ -63,7 +70,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 [makenew-node-lib]: https://github.com/meltwater/makenew-node-lib
 
-[Unreleased]: https://github.com/meltwater/mlabs-koa/compare/v1.5.0...HEAD
+[Unreleased]: https://github.com/meltwater/mlabs-koa/compare/v1.6.0...HEAD
+[1.6.0]: https://github.com/meltwater/mlabs-koa/compare/v1.5.0...v1.6.0
 [1.5.0]: https://github.com/meltwater/mlabs-koa/compare/v1.4.1...v1.5.0
 [1.4.1]: https://github.com/meltwater/mlabs-koa/compare/v1.4.0...v1.4.1
 [1.4.0]: https://github.com/meltwater/mlabs-koa/compare/v1.3.1...v1.4.0
