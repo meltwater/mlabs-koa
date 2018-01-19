@@ -234,7 +234,8 @@ In production, uses `ctx.state.log[level]`.
 
 Logs the properties `reqId` from `ctx.state.reqId`
 and `reqName` from the header defined by `reqNameHeader`.
-In production, also adds the property `http: {url, method, resTime, resSize}`.
+In production, also adds the property
+`http: {url, method, statusCode, resTime, resSize}`.
 
 ---
 ##### `error`
