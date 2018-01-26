@@ -72,4 +72,5 @@ export default ({log}) => (port = 9000) => {
   configFactory.addOverride({port})
 
   run(configFactory)
+  return new Promise(() => {})
 }
