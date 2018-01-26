@@ -248,8 +248,11 @@ In production, also adds the property
   Default: true.
 
 Catches, wraps, and logs all errors as [Boom] errors.
+If `ctx.status` is set to an HTTP error code,
+a corresponding [Boom] error will be thrown.
 Additional data passed to Boom errors is set under `data`.
-Errors are sent as a response in the standard format:
+Errors are sent as a response body in the standard format
+(unless `ctx.body` is already set):
 
 ```json
 {
