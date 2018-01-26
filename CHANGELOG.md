@@ -5,6 +5,20 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [1.7.0] / 2018-01-25
+
+### Changed
+
+- If `ctx.body` is set and an error is thrown
+  (either directly or via `ctx.status`),
+  the body will be respected and sent unmodified
+  instead of sending the standard error payload.
+
+### Fixed
+
+- Throw a corresponding Boom error when `ctx.status` is set.
+  Previously only a 404 status would throw a proper error.
+
 ## [1.6.1] / 2018-01-18
 
 ### Changed
@@ -80,7 +94,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 [makenew-node-lib]: https://github.com/meltwater/makenew-node-lib
 
-[Unreleased]: https://github.com/meltwater/mlabs-koa/compare/v1.6.1...HEAD
+[Unreleased]: https://github.com/meltwater/mlabs-koa/compare/v1.7.0...HEAD
+[1.7.0]: https://github.com/meltwater/mlabs-koa/compare/v1.6.1...v1.7.0
 [1.6.1]: https://github.com/meltwater/mlabs-koa/compare/v1.6.0...v1.6.1
 [1.6.0]: https://github.com/meltwater/mlabs-koa/compare/v1.5.0...v1.6.0
 [1.5.0]: https://github.com/meltwater/mlabs-koa/compare/v1.4.1...v1.5.0
