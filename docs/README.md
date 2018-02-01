@@ -167,13 +167,15 @@ Default is `80`.
 
 Object passed directly to the [logger] `createLogger` function.
 The log level may be overridden with `LOG_LEVEL`.
-When not in development, these additional properties will be added if defined:
+When not in development, these additional properties will be added:
 
 - `env`: Adds `@env` to logs (override with `LOG_ENV`).
+  Default: not included.
 - `service`: Adds `@service` to logs (override with `LOG_SERVICE`).
   Default: automatically determined from the package name.
 - `system`: Adds `@system` to logs (override with `LOG_SYSTEM`).
   Default: automatically determined from the package name.
+- `name` and `version` set from package name and version.
 
 ---
 #### `koa`
