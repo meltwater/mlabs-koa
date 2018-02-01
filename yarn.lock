@@ -75,13 +75,14 @@
     ramda "^0.25.0"
     uuid "^3.1.0"
 
-"@meltwater/mlabs-logger@^3.1.0":
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/@meltwater/mlabs-logger/-/mlabs-logger-3.1.0.tgz#de823d516dfb1fad99dc298fcde00e6f2c39b4e3"
+"@meltwater/mlabs-logger@^4.0.1":
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/@meltwater/mlabs-logger/-/mlabs-logger-4.0.1.tgz#d2381e5a82d47db7bb5125a43c612b90bbb31142"
   dependencies:
-    bunyan "^1.8.12"
+    "@meltwater/examplr" "^4.1.1"
     bunyan-formatter "^1.0.0"
     debug "^3.0.0"
+    pino "^4.10.3"
 
 "@meltwater/phi@^1.0.0":
   version "1.2.0"
