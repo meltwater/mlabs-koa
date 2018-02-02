@@ -65,14 +65,6 @@
     change-case "^3.0.1"
     pino "^4.10.3"
 
-"@meltwater/examplr@^4.1.2":
-  version "4.1.2"
-  resolved "https://registry.yarnpkg.com/@meltwater/examplr/-/examplr-4.1.2.tgz#c5111a8f63ae6dfef1450a811aeecc55c2e530dd"
-  dependencies:
-    bunyan-formatter "^1.0.0"
-    change-case "^3.0.1"
-    pino "^4.10.3"
-
 "@meltwater/mlabs-health@^1.0.0":
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/@meltwater/mlabs-health/-/mlabs-health-1.0.0.tgz#d9ee9f97a8590f81ac6f33a12906cfae417d2c89"
@@ -520,8 +512,8 @@ ava@^0.25.0:
     update-notifier "^2.3.0"
 
 awilix@^3.0.0:
-  version "3.0.4"
-  resolved "https://registry.yarnpkg.com/awilix/-/awilix-3.0.4.tgz#78be1d171310eca8adb31a730fdc336afb5e16e5"
+  version "3.0.5"
+  resolved "https://registry.yarnpkg.com/awilix/-/awilix-3.0.5.tgz#e4d5c05bede2cfc19cb4392c9b0024488a0c1655"
   dependencies:
     camel-case "^3.0.0"
     glob "^7.1.2"
