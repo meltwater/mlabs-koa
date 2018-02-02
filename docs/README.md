@@ -241,8 +241,10 @@ Passes the request id along in the response headers.
 ---
 ##### `logger`
 
-- `useProduction`: Use the production logger or the development one.
-  Default: infer from `NODE_ENV`.
+- `useDev`: Use the simple development only logger.
+  Default: infer from `NODE_ENV` (always disabled in production).
+- `addReq`: Add `req` property to all logs generated from a request.
+  Default: infer from `NODE_ENV` (enable for production).
 - `reqNameHeader`: Header to use for the `reqName` to log.
   Default: `x-request-name`.
 - `level`: Log level to log at.
@@ -250,13 +252,14 @@ Passes the request id along in the response headers.
 
 Logs the start and end of each request.
 
-In development, [koa-logger] is used and passed the configuration.
-In production, uses `ctx.state.log[level]`.
+Adds the properties `reqId` from `ctx.state.reqId`
+and `reqName` from the header defined by `reqNameHeader`
+to all logs for each request.
 
-Logs the properties `reqId` from `ctx.state.reqId`
-and `reqName` from the header defined by `reqNameHeader`.
-In production, also adds the property
-`http: {url, method, statusCode, resTime, resSize}`.
+In development, the [koa-logger] is used and passed the configuration.
+In production, uses `ctx.state.log[level]` which logs
+the `req` and `res` properties.
+Toggle with the `useDev` option.
 
 ---
 ##### `error`
@@ -385,8 +388,9 @@ These values are not necessarily the defaults.
       "disable": false
     },
     "logger": {
+      "useDev": false,
+      "addReq": false,
       "level": "debug",
-      "useProduction": "true",
       "reqNameHeader": "x-request-name",
       "disable": false
     },
