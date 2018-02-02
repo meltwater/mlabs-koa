@@ -102,7 +102,7 @@
   },
   "dependencies": {
     "@koa/cors": "^2.2.1",
-    "@meltwater/mlabs-logger": "^4.0.1",
+    "@meltwater/mlabs-logger": "^4.0.2",
     "@meltwater/phi": "^1.0.0",
     "boom": "^7.1.1",
     "chokidar": "^2.0.0",

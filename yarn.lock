@@ -75,9 +75,9 @@
     ramda "^0.25.0"
     uuid "^3.1.0"
 
-"@meltwater/mlabs-logger@^4.0.1":
-  version "4.0.1"
-  resolved "https://registry.yarnpkg.com/@meltwater/mlabs-logger/-/mlabs-logger-4.0.1.tgz#d2381e5a82d47db7bb5125a43c612b90bbb31142"
+"@meltwater/mlabs-logger@^4.0.2":
+  version "4.0.2"
+  resolved "https://registry.yarnpkg.com/@meltwater/mlabs-logger/-/mlabs-logger-4.0.2.tgz#fb38c77b9e9c2c1aee984b35277f6850093b87c4"
   dependencies:
     "@meltwater/examplr" "^4.1.1"
     bunyan-formatter "^1.0.0"
