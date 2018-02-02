@@ -34,6 +34,10 @@ under `ctx.state.container`.
       (a [logger] and a [confit] config object)
       and returns an [Awilix] container.
       See [Dependencies](#dependencies) below.
+    - `logFilters`: Object of named log output filters available
+      via the log `filter` config value.
+      See the `log` config section below and
+      the [logger documentation] for `outputFilter`.
 
 #### Returns
 
@@ -167,6 +171,7 @@ Default is `80`.
 
 Object passed directly to the [logger] `createLogger` function.
 The log level may be overridden with `LOG_LEVEL`.
+
 When not in development, these additional properties will be added:
 
 - `env`: Adds `@env` to logs (override with `LOG_ENV`).
@@ -176,6 +181,16 @@ When not in development, these additional properties will be added:
 - `system`: Adds `@system` to logs (override with `LOG_SYSTEM`).
   Default: automatically determined from the package name.
 - `name` and `version` set from package name and version.
+
+In development, the `filter` option is respected and may be the name of a filter
+defined in the `logFilters` option passed to `createDependencies`.
+Override with `LOG_FILTER`.
+
+The `outputMode` is only respected in development and ignored in production.
+Override with `LOG_OUTPUT_MODE`.
+
+See the [logger documentation] for an explanation
+of the `outputMode` and `outputFilter` options.
 
 ---
 #### `koa`
@@ -350,7 +365,9 @@ These values are not necessarily the defaults.
     "level": "info",
     "env": "space",
     "service": "laser",
-    "system": "deathstar"
+    "system": "deathstar",
+    "filter": "onlyJedi",
+    "outputMode": "pretty"
   },
   "koa": {
     "responseTime": {
@@ -422,7 +439,8 @@ These values are not necessarily the defaults.
 [Awilix]: https://github.com/jeffijoe/awilix
 [Boom]: https://github.com/hapijs/boom
 [confit]: https://github.com/krakenjs/confit
-[logger]:  https://github.com/meltwater/mlabs-logger
+[logger]: https://github.com/meltwater/mlabs-logger
+[logger documentation]: https://github.com/meltwater/mlabs-logger/tree/master/docs
 [Health Monitor]: https://github.com/meltwater/mlabs-health/tree/master/docs#createhealthmonitortargets-options
 [createHealthy]: https://github.com/meltwater/mlabs-health/tree/master/docs#createhealthyoptions
 [koa-logger]: https://github.com/koajs/logger
