@@ -4,9 +4,11 @@ import createExamples from '@meltwater/examplr'
 import createLogger from '@meltwater/mlabs-logger'
 
 import { noLifecycle } from './filters'
+import health from './health'
 import server from './server'
 
 export const examples = {
+  health,
   server
 }
 

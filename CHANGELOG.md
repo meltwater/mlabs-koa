@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Select `logOutputMode`in development.
 - Corresponding overrides for the above with `LOG_OUTPUT_MODE` and `LOG_FILTER`.
 - Ability to override log `version` property.
+- Convenience method `httpGetJson`.
 
 ## Changed
 

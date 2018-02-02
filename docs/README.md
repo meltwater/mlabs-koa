@@ -4,6 +4,7 @@
 
 - [`createServer(options)`](#createserveroptions)
 - [`koaHealthy(options)`](#koahealthyoptions)
+- [`httpGetJson(url)`](#httpgetjsonurl)
 
 ### Importing
 
@@ -82,9 +83,21 @@ This middleware is mounted at `/ping` by default.
       If the middleware will set 200 or 503 status.
       Default: true.
 
+---
+### `httpGetJson(url)`
+
+Convenience method for making a single http GET request
+and returning the parsed JSON response wrapped in a promise.
+Not intended for production, but may be useful for simple examples and debugging
+as it has no external dependencies.
+
+#### Arguments
+
+1. `url` (*string*): The URL to get.
+
 #### Returns
 
-(*function*): The middleware.
+(*object*): A promise for the parsed JSON response.
 
 ## Dependencies
 
