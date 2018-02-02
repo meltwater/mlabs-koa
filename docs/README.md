@@ -182,12 +182,12 @@ When not in development, these additional properties will be added:
   Default: automatically determined from the package name.
 - `name` and `version` set from package name and version.
 
+The `outputMode` is only respected in development and ignored in production.
+Override with `LOG_OUTPUT_MODE`.
+
 In development, the `filter` option is respected and may be the name of a filter
 defined in the `logFilters` option passed to `createDependencies`.
 Override with `LOG_FILTER`.
-
-The `outputMode` is only respected in development and ignored in production.
-Override with `LOG_OUTPUT_MODE`.
 
 See the [logger documentation] for an explanation
 of the `outputMode` and `outputFilter` options.
