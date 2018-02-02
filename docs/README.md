@@ -170,31 +170,31 @@ Default is `80`.
 #### `log`
 
 Object passed directly to the [logger] `createLogger` function.
-The `base` option will be merged with the standard Pino `base` defaults.
-The log level may be overridden with `LOG_LEVEL`.
+Intelligent values are used for many properties if not overridden.
 
-When not in development, these additional options will add
-properties to the `base` logger:
+Some options are specific to this module
+and used to determine log options; they are not passed through.
 
-- `env`: Adds `@env` to logs (override with `LOG_ENV`).
-  Default: not included.
-- `service`: Adds `@service` to logs (override with `LOG_SERVICE`).
-  Default: automatically determined from the package name.
-- `system`: Adds `@system` to logs (override with `LOG_SYSTEM`).
-  Default: automatically determined from the package name.
-- `version`: Adds `version` (override with `LOG_VERSION`).
-  Default: set from package and version.
-
-The `outputMode` is only respected in development and ignored in production.
-Override with `LOG_OUTPUT_MODE`.
-
-The `filter` option is only respected in development and ignored in production.
-It must be the name of a filter defined in
-the `logFilters` option passed to `createDependencies`.
-Override with `LOG_FILTER`.
-
-See the [logger documentation] for an explanation
-of the `outputMode` and `outputFilter` options.
+- The log level may be overridden with `level` or `LOG_LEVEL`.
+- The `base` option will be merged with the standard Pino `base` defaults.
+- The `outputMode` is only respected in development and ignored in production.
+  Override with `LOG_OUTPUT_MODE`.
+- The `filter` option is only respected in development and ignored in production.
+  It must be the name of a filter defined in
+  the `logFilters` option passed to `createDependencies`.
+  Override with `LOG_FILTER`.
+- See the [logger documentation] for an explanation
+  of the `outputMode` and `outputFilter` options.
+- When not in development, these additional options will add
+  properties to the `base` logger:
+    - `env`: Adds `@env` to logs (override with `LOG_ENV`).
+      Default: not included.
+    - `service`: Adds `@service` to logs (override with `LOG_SERVICE`).
+      Default: automatically determined from the package name.
+    - `system`: Adds `@system` to logs (override with `LOG_SYSTEM`).
+      Default: automatically determined from the package name.
+    - `version`: Adds `version` to logs (override with `LOG_VERSION`).
+      Default: set from package and version.
 
 ---
 #### `koa`
