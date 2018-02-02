@@ -19,9 +19,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Update to mlabs-logger version 4 which now uses Pino.
 - Default logger properties must be under the `base` option.
   The base option will be merged with the standard Pino base defaults.
-- Logs are now formatted in development according to log `outputMode`.
+- (**Breaking**) Logs are now formatted in development according to log `outputMode`.
   No need to pipe logs through an external CLI formatter.
-- Remove `useProduction` logger option and replace with `useDev` and `addReq`.
+- (**Breaking**) Remove `useProduction` logger option and replace with `useDev` and `addReq`.
 - Update to [makenew-node-lib] v4.3.4.
 
 ## [1.7.0] / 2018-01-25
