@@ -5,6 +5,20 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [Unreleased]
+
+## Added
+
+- Filter logs in development with new options `logFilters` and `filter`.
+- Select `logOutputMode`in development.
+- Corresponding overrides for the above with `LOG_OUTPUT_MODE` and `LOG_FILTER`.
+
+## Changed
+
+- Update to mlabs-logger version 4 which now uses Pino.
+- Logs are now formatted in development according to `logOutputMode`.
+  No need to pipe logs through an external CLI formatter.
+
 ## [1.7.0] / 2018-01-25
 
 ### Changed
