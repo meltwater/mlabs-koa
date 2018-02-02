@@ -3,6 +3,7 @@ import path from 'path'
 import createExamples from '@meltwater/examplr'
 import createLogger from '@meltwater/mlabs-logger'
 
+import { noLifecycle } from './filters'
 import server from './server'
 
 export const examples = {
@@ -20,6 +21,7 @@ const defaultOptions = {}
 if (require.main === module) {
   const { runExample } = createExamples({
     createLogger,
+    logFilters: {noLifecycle},
     examples,
     envVars,
     defaultOptions

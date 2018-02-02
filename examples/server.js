@@ -9,6 +9,7 @@ import {
 } from '@meltwater/mlabs-health'
 
 import { createServer, koaHealthy } from '../lib'
+import { noLifecycle } from './filters'
 
 const createHealthMonitor = () => createMlabsHealthMonitor({
   puppies: container => container.resolve('puppies')
@@ -39,10 +40,7 @@ const createPuppies = ({log, reqId}) => {
   return {health}
 }
 
-// NOTE: For this example, log comes from @meltwater/examplr.
-// In a real system, createDependencies takes no arguments
-// and log is passed in at the same level as config.
-const createDependencies = log => ({config}) => {
+const createDependencies = ({log, config}) => {
   const container = createContainer()
 
   container.register({
@@ -65,8 +63,9 @@ const createDependencies = log => ({config}) => {
 // but must still pass a configPath.
 export default ({log}) => (port = 9000) => {
   const { configFactory, run } = createServer({
+    logFilters: {noLifecycle},
     configPath: __dirname,
-    createDependencies: createDependencies(log)
+    createDependencies
   })
 
   configFactory.addOverride({port})
