@@ -12,10 +12,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Filter logs in development with new options `logFilters` and `filter`.
 - Select `logOutputMode`in development.
 - Corresponding overrides for the above with `LOG_OUTPUT_MODE` and `LOG_FILTER`.
+- Ability to override log `version` property.
 
 ## Changed
 
 - Update to mlabs-logger version 4 which now uses Pino.
+- Default logger properties must be under the `base` option.
+  The base option will be merged with the standard Pino base defaults.
 - Logs are now formatted in development according to `logOutputMode`.
   No need to pipe logs through an external CLI formatter.
 - Update to [makenew-node-lib] v4.3.4.
