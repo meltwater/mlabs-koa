@@ -170,9 +170,11 @@ Default is `80`.
 #### `log`
 
 Object passed directly to the [logger] `createLogger` function.
+The `base` option will be merged with the standard Pino `base` defaults.
 The log level may be overridden with `LOG_LEVEL`.
 
-When not in development, these additional properties will be added:
+When not in development, these additional options will add
+properties to the `base` logger:
 
 - `env`: Adds `@env` to logs (override with `LOG_ENV`).
   Default: not included.
@@ -180,13 +182,15 @@ When not in development, these additional properties will be added:
   Default: automatically determined from the package name.
 - `system`: Adds `@system` to logs (override with `LOG_SYSTEM`).
   Default: automatically determined from the package name.
-- `name` and `version` set from package name and version.
+- `version`: Adds `version` (override with `LOG_VERSION`).
+  Default: set from package and version.
 
 The `outputMode` is only respected in development and ignored in production.
 Override with `LOG_OUTPUT_MODE`.
 
-In development, the `filter` option is respected and may be the name of a filter
-defined in the `logFilters` option passed to `createDependencies`.
+The `filter` option is only respected in development and ignored in production.
+It must be the name of a filter defined in
+the `logFilters` option passed to `createDependencies`.
 Override with `LOG_FILTER`.
 
 See the [logger documentation] for an explanation
@@ -366,6 +370,7 @@ These values are not necessarily the defaults.
     "env": "space",
     "service": "laser",
     "system": "deathstar",
+    "base": {"jedi": true},
     "filter": "onlyJedi",
     "outputMode": "pretty"
   },

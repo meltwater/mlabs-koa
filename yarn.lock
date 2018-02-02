@@ -65,6 +65,14 @@
     change-case "^3.0.1"
     pino "^4.10.3"
 
+"@meltwater/examplr@^4.1.2":
+  version "4.1.2"
+  resolved "https://registry.yarnpkg.com/@meltwater/examplr/-/examplr-4.1.2.tgz#c5111a8f63ae6dfef1450a811aeecc55c2e530dd"
+  dependencies:
+    bunyan-formatter "^1.0.0"
+    change-case "^3.0.1"
+    pino "^4.10.3"
+
 "@meltwater/mlabs-health@^1.0.0":
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/@meltwater/mlabs-health/-/mlabs-health-1.0.0.tgz#d9ee9f97a8590f81ac6f33a12906cfae417d2c89"
@@ -75,11 +83,11 @@
     ramda "^0.25.0"
     uuid "^3.1.0"
 
-"@meltwater/mlabs-logger@^4.0.3":
-  version "4.0.3"
-  resolved "https://registry.yarnpkg.com/@meltwater/mlabs-logger/-/mlabs-logger-4.0.3.tgz#64e69a9e29e148c88d71c1b7b9c9576cee05b836"
+"@meltwater/mlabs-logger@^4.1.0":
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/@meltwater/mlabs-logger/-/mlabs-logger-4.1.0.tgz#acb2379027608ec5cfcabcd301d184776612a7ca"
   dependencies:
-    "@meltwater/examplr" "^4.1.1"
+    "@meltwater/examplr" "^4.1.2"
     bunyan-formatter "^1.0.0"
     debug "^3.0.0"
     pino "^4.10.3"
