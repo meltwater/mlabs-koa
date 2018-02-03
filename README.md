@@ -1,5 +1,7 @@
 # Koa Middleware
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/meltwater/mlabs-koa.svg?token=5a8a884c0dbe77dddd658cb336694fcda37afe17ae6a630a7b5a06d71c514e01&ts=1517616259158)](https://greenkeeper.io/)
+
 [![npm](https://img.shields.io/badge/npm-%40meltwater%2Fmlabs--koa-blue.svg)](https://www.npmjs.com/package/@meltwater/mlabs-koa)
 [![github](https://img.shields.io/badge/github-repo-blue.svg)](https://github.com/meltwater/mlabs-koa)
 [![docs](https://img.shields.io/badge/docs-master-green.svg)](https://github.com/meltwater/mlabs-koa/tree/master/docs)
