@@ -3,6 +3,7 @@
 [![npm](https://img.shields.io/badge/npm-%40meltwater%2Fmlabs--koa-blue.svg)](https://www.npmjs.com/package/@meltwater/mlabs-koa)
 [![github](https://img.shields.io/badge/github-repo-blue.svg)](https://github.com/meltwater/mlabs-koa)
 [![docs](https://img.shields.io/badge/docs-master-green.svg)](https://github.com/meltwater/mlabs-koa/tree/master/docs)
+[![Greenkeeper badge](https://badges.greenkeeper.io/meltwater/mlabs-koa.svg?token=5a8a884c0dbe77dddd658cb336694fcda37afe17ae6a630a7b5a06d71c514e01&ts=1517616259158)](https://greenkeeper.io/)
 [![Codecov](https://img.shields.io/codecov/c/token/B7mRavvAbu/github/meltwater/mlabs-koa.svg)](https://codecov.io/gh/meltwater/mlabs-koa)
 [![CircleCI](https://circleci.com/gh/meltwater/mlabs-koa.svg?style=shield&circle-token=9bf640753b5b12586fc1c427fe280b8c85e48e2f)](https://circleci.com/gh/meltwater/mlabs-koa)
 
