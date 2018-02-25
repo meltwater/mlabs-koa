@@ -5,9 +5,19 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2.1.0] / 2018-02-25
+
+### Changed
+
+- Use default config value when environment variable is empty string.
+
+### Fixed
+
+- Case where log `outputMode` would be ignored.
+
 ## [2.0.0] / 2018-02-02
 
-## Added
+### Added
 
 - Filter logs in development with new options `logFilters` and `filter`.
 - Select `logOutputMode`in development.
@@ -15,7 +25,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Ability to override log `version` property.
 - Convenience method `httpGetJson`.
 
-## Changed
+### Changed
 
 - Update to mlabs-logger version 4 which now uses Pino.
 - Default logger properties must be under the `base` option.
@@ -114,7 +124,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 [makenew-node-lib]: https://github.com/meltwater/makenew-node-lib
 
-[Unreleased]: https://github.com/meltwater/mlabs-koa/compare/v2.0.0...HEAD
+[Unreleased]: https://github.com/meltwater/mlabs-koa/compare/v2.1.0...HEAD
+[2.1.0]: https://github.com/meltwater/mlabs-koa/compare/v2.0.0...v2.1.0
 [2.0.0]: https://github.com/meltwater/mlabs-koa/compare/v1.7.0...v2.0.0
 [1.7.0]: https://github.com/meltwater/mlabs-koa/compare/v1.6.1...v1.7.0
 [1.6.1]: https://github.com/meltwater/mlabs-koa/compare/v1.6.0...v1.6.1
