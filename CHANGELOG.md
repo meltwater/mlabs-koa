@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 
 - Use default config value when environment variable is empty string.
+- Update to [makenew-node-lib] v4.4.1.
 
 ### Fixed
 
