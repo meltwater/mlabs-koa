@@ -105,7 +105,7 @@
   "dependencies": {
     "@koa/cors": "^2.2.1",
     "@meltwater/mlabs-logger": "^4.1.0",
-    "@meltwater/phi": "^1.0.0",
+    "@meltwater/phi": "^2.0.0",
     "boom": "^7.1.1",
     "chokidar": "^2.0.0",
     "confit": "^2.2.1",
@@ -116,8 +116,6 @@
     "koa-logger": "^3.1.0",
     "koa-mount": "^3.0.0",
     "koa-router": "^7.2.1",
-    "ramda": "^0.25.0",
-    "ramda-adjunct": "^2.0.0",
     "uuid": "^3.1.0"
   },
   "devDependencies": {
