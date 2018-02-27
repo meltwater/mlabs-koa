@@ -5,6 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2.1.1] / 2018-02-27
+
+### Changed
+
+- Update to @meltwater/phi v2.
+- Update to [makenew-node-lib] v4.5.0.
+
 ## [2.1.0] / 2018-02-25
 
 ### Changed
@@ -125,7 +132,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 [makenew-node-lib]: https://github.com/meltwater/makenew-node-lib
 
-[Unreleased]: https://github.com/meltwater/mlabs-koa/compare/v2.1.0...HEAD
+[Unreleased]: https://github.com/meltwater/mlabs-koa/compare/v2.1.1...HEAD
+[2.1.1]: https://github.com/meltwater/mlabs-koa/compare/v2.1.0...v2.1.1
 [2.1.0]: https://github.com/meltwater/mlabs-koa/compare/v2.0.0...v2.1.0
 [2.0.0]: https://github.com/meltwater/mlabs-koa/compare/v1.7.0...v2.0.0
 [1.7.0]: https://github.com/meltwater/mlabs-koa/compare/v1.6.1...v1.7.0
