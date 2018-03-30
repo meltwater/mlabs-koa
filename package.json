@@ -104,7 +104,7 @@
   },
   "dependencies": {
     "@koa/cors": "^2.2.1",
-    "@meltwater/mlabs-logger": "^4.1.0",
+    "@meltwater/mlabs-logger": "^4.1.1",
     "@meltwater/phi": "^2.0.0",
     "boom": "^7.1.1",
     "chokidar": "^2.0.0",
@@ -120,7 +120,7 @@
   },
   "devDependencies": {
     "@meltwater/examplr": "^4.1.4",
-    "@meltwater/mlabs-health": "^1.0.0",
+    "@meltwater/mlabs-health": "^1.1.3",
     "ava": "^0.25.0",
     "awilix": "^3.0.0",
     "babel-cli": "^6.18.0",
