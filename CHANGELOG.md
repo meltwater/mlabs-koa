@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2.1.2] / 2018-03-29
+
+### Changed
+
+- Update to koa-helmet v4.
+- Update to mlabs-logger v4.1.1.
+- Update to [makenew-node-lib] v4.6.1.
+
 ## [2.1.1] / 2018-02-27
 
 ### Changed
@@ -132,7 +140,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 [makenew-node-lib]: https://github.com/meltwater/makenew-node-lib
 
-[Unreleased]: https://github.com/meltwater/mlabs-koa/compare/v2.1.1...HEAD
+[Unreleased]: https://github.com/meltwater/mlabs-koa/compare/v2.1.2...HEAD
+[2.1.2]: https://github.com/meltwater/mlabs-koa/compare/v2.1.1...v2.1.2
 [2.1.1]: https://github.com/meltwater/mlabs-koa/compare/v2.1.0...v2.1.1
 [2.1.0]: https://github.com/meltwater/mlabs-koa/compare/v2.0.0...v2.1.0
 [2.0.0]: https://github.com/meltwater/mlabs-koa/compare/v1.7.0...v2.0.0
