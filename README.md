@@ -294,13 +294,13 @@ Create a breakpoint by adding the statement `debugger` to the test
 and start a debug session with, e.g.,
 
 ```
-$ yarn run ava:inspect lib/true.spec.js
+$ yarn run test:inspect lib/middleware/error.spec.js
 ```
 
 Watch and restart the debugging session on changes with
 
 ```
-$ yarn run ava:inspect:watch lib/true.spec.js
+$ yarn run test:inspect:watch lib/middleware/error.spec.js
 ```
 
 [AVA]: https://github.com/avajs/ava
