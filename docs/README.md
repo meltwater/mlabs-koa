@@ -120,6 +120,8 @@ The following dependencies must be registered in `createDependencies`:
 - `stop`: Async function to wait on before server shutdown:
   called after server has stopped accepting new connections.
 - `app`: The Koa app to mount.
+- `registry`: A [Prometheus Registry]:
+   only required for exporting metrics via the metrics middleware.
 
 A minimal example (taken from [`server.js`](../examples/server.js)) looks like
 
@@ -328,6 +330,16 @@ Includes the rules `allow` and `disallow`.
 Disallows all by default.
 
 ---
+##### `metrics`
+
+- `path`: Path to serve metrics.
+  Default: `/metrics`.
+
+Serves Prometheus metrics at `GET /metrics`
+using `registry.metrics()`.
+The `registry` must be registered as a dependency.
+
+---
 ##### `ping`
 
 - `path`: Path to serve ping.
@@ -437,6 +449,10 @@ These values are not necessarily the defaults.
       },
       "disable": false
     },
+    "metrics": {
+      "path": "/metrics",
+      "disable": false
+    },
     "ping": {
       "path": "/ping",
       "isHealthy": true,
@@ -466,3 +482,4 @@ These values are not necessarily the defaults.
 [Health Monitor]: https://github.com/meltwater/mlabs-health/tree/master/docs#createhealthmonitortargets-options
 [createHealthy]: https://github.com/meltwater/mlabs-health/tree/master/docs#createhealthyoptions
 [koa-logger]: https://github.com/koajs/logger
+[Prometheus Registry]: https://github.com/siimon/prom-client#multiple-registries

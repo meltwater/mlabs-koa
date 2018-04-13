@@ -47,6 +47,7 @@ and third party middleware (explicitly linked below).
 - [`conditionalGet`]: Conditional GET support.
 - [`etag`]: Add ETag to response.
 - [`favicon`]: Serve a default favicon.
+- `metrics`: Serve [Prometheus] metrics.
 - `robots`: Serve `/robots.txt`.
 - `ping`: Serve minimal connection check at `/ping`.
 - `health`: Check health at `/health`.
@@ -60,6 +61,7 @@ and third party middleware (explicitly linked below).
 [`helmet`]: https://github.com/venables/koa-helmet
 [Boom]: https://github.com/hapijs/boom
 [koa-logger]: https://github.com/koajs/logger
+[Prometheus]: https://prometheus.io/
 
 ## Installation
 

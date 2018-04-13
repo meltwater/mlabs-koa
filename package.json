@@ -100,7 +100,8 @@
   "peerDependencies": {
     "@meltwater/mlabs-health": "^1.0",
     "awilix": "^3.0",
-    "koa": "^2.0"
+    "koa": "^2.0",
+    "prom-client": "^11.0"
   },
   "dependencies": {
     "@koa/cors": "^2.2.1",
@@ -140,6 +141,7 @@
     "nodemon": "^1.11.0",
     "npm-run-all": "^4.1.2",
     "nyc": "^11.0.2",
+    "prom-client": "^11.0.0",
     "standard": "^11.0.0",
     "testdouble": "^3.2.6"
   }
