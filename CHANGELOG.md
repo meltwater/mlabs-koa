@@ -11,11 +11,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 - Readiness middleware to track if server is ready to handle requests.
 - Option to delay shutdown for `shutdownDelay` milliseconds.
-- Koa server starts before registered `start` function is called.
 
 ### Changed
 
 - Server will not shutdown on config change: instead it will fail readiness check.
+- Koa server starts before registered `start` function is called.
 
 ### Fixed
 
