@@ -115,8 +115,8 @@ The following dependencies must be registered in `createDependencies`:
   See [createHealthy].
   The `health` key must be provided and will be used by default
   for any unspecified health checks.
-- `start`: Async function to wait on before server startup:
-  called before server has started accepting new connections.
+- `start`: Async function to wait on before server is ready:
+  called after server has started accepting new connections.
 - `stop`: Async function to wait on before server shutdown:
   called after server has stopped accepting new connections.
 - `app`: The Koa app to mount.
@@ -356,6 +356,22 @@ The `registry` must be registered as a dependency.
 Serves ping at `GET /ping` using [`koaHealthy`](#koahealthyoptions).
 
 ---
+##### `ready`
+
+- `path`: Path to serve ready.
+  Default: `/ready`.
+
+Serves ready status at `GET /ready` using [`koaHealthy`](#koahealthyoptions).
+
+This indicates the server is ready and able to serve requests.
+The server is ready if the `start` promise has resolved,
+the health status is not `false`,
+the configuration has not changed since boot,
+and the server is not in the process of shutting down.
+
+The middleware will trigger background health checks on each request.
+
+---
 ##### `health`
 
 - `path`: Path to serve health.
@@ -464,6 +480,10 @@ These values are not necessarily the defaults.
     "ping": {
       "path": "/ping",
       "isHealthy": true,
+      "disable": false
+    },
+    "ready": {
+      "path": "/ready",
       "disable": false
     },
     "health": {

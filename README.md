@@ -49,7 +49,8 @@ and third party middleware (explicitly linked below).
 - [`favicon`]: Serve a default favicon.
 - `metrics`: Serve [Prometheus] metrics.
 - `robots`: Serve `/robots.txt`.
-- `ping`: Serve minimal connection check at `/ping`.
+- `ping`: Serve liveliness check at `/ping`.
+- `ready`: Serve readiness check at `/ready`.
 - `health`: Check health at `/health`.
 - `status`: Serve health status at `/status`.
 - `root`: Serve `package.json` at `/`.
