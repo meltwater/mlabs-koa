@@ -5,6 +5,23 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [3.0.0] / 2018-05-11
+
+### Added
+
+- Readiness middleware to track if server is ready to handle requests.
+- Option to delay shutdown for `shutdownDelay` milliseconds.
+- Koa server starts before registered `start` function is called.
+
+### Changed
+
+- Server will not shutdown on config change: instead it will fail readiness check.
+
+### Fixed
+
+- `koaHealthy` responded with JSON instead of plain text when
+  requests do not send accept header.
+
 ## [2.3.0] / 2018-04-13
 
 ### Added
@@ -153,7 +170,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 [makenew-node-lib]: https://github.com/meltwater/makenew-node-lib
 
-[Unreleased]: https://github.com/meltwater/mlabs-koa/compare/v2.3.0...HEAD
+[Unreleased]: https://github.com/meltwater/mlabs-koa/compare/v3.0.0...HEAD
+[3.0.0]: https://github.com/meltwater/mlabs-koa/compare/v2.3.0...v3.0.0
 [2.3.0]: https://github.com/meltwater/mlabs-koa/compare/v2.2.0...v2.3.0
 [2.2.0]: https://github.com/meltwater/mlabs-koa/compare/v2.1.2...v2.2.0
 [2.1.2]: https://github.com/meltwater/mlabs-koa/compare/v2.1.1...v2.1.2
