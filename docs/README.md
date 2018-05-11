@@ -182,6 +182,13 @@ The port number to run the server on.
 Override with `PORT`.
 Default is `80`.
 
+#### `shutdownDelay`
+
+The number of milliseconds the sever will wait after receiving
+SIGTERM or SIGINT before shutting down.
+Override with `SHUTDOWN_DELAY`.
+Default is `0`.
+
 #### `log`
 
 Object passed directly to the [logger] `createLogger` function.
@@ -393,6 +400,7 @@ These values are not necessarily the defaults.
 ```json
 {
   "port": 80,
+  "shutdownDelay": 1000,
   "log": {
     "level": "info",
     "env": "space",
