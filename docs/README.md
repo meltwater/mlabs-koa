@@ -189,6 +189,11 @@ SIGTERM or SIGINT before shutting down.
 Override with `SHUTDOWN_DELAY`.
 Default is `0`.
 
+#### `shutdownOnChange`
+
+Set if the server will initiate shutdown when it detects configuration changes.
+Default is `true`.
+
 #### `log`
 
 Object passed directly to the [logger] `createLogger` function.
@@ -417,6 +422,7 @@ These values are not necessarily the defaults.
 {
   "port": 80,
   "shutdownDelay": 1000,
+  "shutdownOnChange": false,
   "log": {
     "level": "info",
     "env": "space",
