@@ -177,7 +177,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 [makenew-node-lib]: https://github.com/meltwater/makenew-node-lib
 
-[Unreleased]: https://github.com/meltwater/mlabs-koa/compare/v3.0.0...HEAD
+[Unreleased]: https://github.com/meltwater/mlabs-koa/compare/v4.0.0...HEAD
+[4.0.0]: https://github.com/meltwater/mlabs-koa/compare/v3.0.0...v4.0.0
 [3.0.0]: https://github.com/meltwater/mlabs-koa/compare/v2.3.0...v3.0.0
 [2.3.0]: https://github.com/meltwater/mlabs-koa/compare/v2.2.0...v2.3.0
 [2.2.0]: https://github.com/meltwater/mlabs-koa/compare/v2.1.2...v2.2.0
