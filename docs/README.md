@@ -191,7 +191,7 @@ Default is `0`.
 
 #### `shutdownOnChange`
 
-Set if the server will initiate shutdown when it detects configuration changes.
+If the server will initiate shutdown when it detects configuration changes.
 Default is `true`.
 
 #### `log`
