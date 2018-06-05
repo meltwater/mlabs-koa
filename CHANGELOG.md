@@ -5,6 +5,20 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [Unreleased]
+
+### Changed
+
+- (**Breaking**) Health middleware now waits for health checks
+  to resolve before returning health status.
+- All previously required dependencies are now optional (except `log`).
+
+### Added
+
+- New option `exitOnFalseStart` (default `true`).
+  If `false`, the server will not crash if `start` rejects,
+  but it will never enter a ready state.
+
 ## [4.0.1] / 2018-05-27
 
 ### Fixed
