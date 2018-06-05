@@ -8,6 +8,7 @@ import {
   healthLogging,
   createHealthy
 } from '@meltwater/mlabs-health'
+import { sleeP } from '@meltwater/phi'
 
 import { createServer, koaHealthy } from '../lib'
 import { noLifecycle } from './filters'
@@ -35,8 +36,9 @@ const createApp = () => {
 }
 
 const createPuppies = ({log, reqId}) => {
-  const health = () => {
+  const health = async () => {
     log.child({service: 'puppies', reqId}).info('Health: Start')
+    await sleeP(4000)
     return true
   }
   return {health}
