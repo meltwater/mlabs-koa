@@ -5,7 +5,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## [Unreleased]
+## [5.0.0] / 2018-06-06
 
 ### Changed
 
@@ -199,7 +199,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 [makenew-node-lib]: https://github.com/meltwater/makenew-node-lib
 
-[Unreleased]: https://github.com/meltwater/mlabs-koa/compare/v4.0.1...HEAD
+[Unreleased]: https://github.com/meltwater/mlabs-koa/compare/v5.0.0...HEAD
+[5.0.0]: https://github.com/meltwater/mlabs-koa/compare/v4.0.1...v5.0.0
 [4.0.1]: https://github.com/meltwater/mlabs-koa/compare/v4.0.0...v4.0.1
 [4.0.0]: https://github.com/meltwater/mlabs-koa/compare/v3.0.0...v4.0.0
 [3.0.0]: https://github.com/meltwater/mlabs-koa/compare/v2.3.0...v3.0.0
