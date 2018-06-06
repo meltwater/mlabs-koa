@@ -11,7 +11,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 - (**Breaking**) Health middleware now waits for health checks
   to resolve before returning health status.
-- All previously required dependencies are now optional (except `log`).
+- All previously required dependencies are now optional.
+  If one is unregistered, a default will be registered instead.
+- Both `configPath` and `createDependencies` are now optional.
 
 ### Added
 

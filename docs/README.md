@@ -27,10 +27,10 @@ under `ctx.state.container`.
 #### Arguments
 
 1. `options` (*object*):
-    - `configPath` (*string* **required**):
+    - `configPath` (*string*):
       Full path to the configuration directory.
       See [Middleware and Config](#config-and-middleware) below.
-    - `createDependencies` (*function* **required**):
+    - `createDependencies` (*function*):
       Function which takes an object `{config, log}`
       (a [logger] and a [confit] config object)
       and returns an [Awilix] container.
@@ -105,7 +105,9 @@ The `createDependencies` function will be passed an object with
 `log` (a [logger]) and `config` (a [confit] config object).
 Use `config.get('a:b:c')` to pass configuration to dependencies.
 
-The following dependencies must be registered in `createDependencies`:
+The following dependencies are used by the module
+and may be registered in `createDependencies`
+(if missing, default ones will be registered):
 
 - `log`: A [logger] instance.
 - `healthMonitor`: A [Health Monitor].
@@ -122,27 +124,6 @@ The following dependencies must be registered in `createDependencies`:
 - `app`: The Koa app to mount.
 - `registry`: A [Prometheus Registry]:
    only required for exporting metrics via the metrics middleware.
-
-A minimal example (taken from [`server.js`](../examples/server.js)) looks like
-
-```js
-import { createContainer, asValue, asFunction } from 'awilix'
-
-const createDependencies = ({log, config}) => {
-  const container = createContainer()
-
-  container.register({
-    log: asValue(log),
-    healthMethods: asValue({health: createHealthy()}),
-    healthMonitor: asFunction(createHealthMonitor).singleton(),
-    start: asFunction(createStart).singleton(),
-    stop: asFunction(createStop).singleton(),
-    app: asFunction(createApp).singleton()
-  })
-
-  return container
-}
-```
 
 ## Config and Middleware
 
