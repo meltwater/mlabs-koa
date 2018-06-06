@@ -175,6 +175,11 @@ Default is `0`.
 If the server will initiate shutdown when it detects configuration changes.
 Default is `true`.
 
+#### `exitOnFalseStart`
+
+If the server will exit when the `start` promise rejects.
+Default is `true`.
+
 #### `log`
 
 Object passed directly to the [logger] `createLogger` function.
@@ -366,6 +371,9 @@ The middleware will trigger background health checks on each request.
 Serves healthy status at `GET /health`
 and each individual healthy status at `GET /health/:name`.
 
+Will trigger new health checks and wait for all
+to resolve before responding.
+
 The boolean health status is computed
 from `healthMethods[name](healthMonitor[name].status())`.
 
@@ -404,6 +412,7 @@ These values are not necessarily the defaults.
   "port": 80,
   "shutdownDelay": 1000,
   "shutdownOnChange": false,
+  "exitOnFalseStart": true,
   "log": {
     "level": "info",
     "env": "space",
