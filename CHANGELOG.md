@@ -14,6 +14,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - All previously required dependencies are now optional.
   If one is unregistered, a default will be registered instead.
 - Both `configPath` and `createDependencies` are now optional.
+- A global `reqId` is registered for dependencies
+  that need it outside of a request (on startup for example).
 
 ### Added
 

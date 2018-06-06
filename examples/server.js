@@ -17,9 +17,10 @@ const createHealthMonitor = () => createMlabsHealthMonitor({
   puppies: container => container.resolve('puppies')
 })
 
-const createStart = ({log, registry, healthMonitor}) => async () => {
+const createStart = ({reqId, log, registry, healthMonitor}) => async () => {
   healthLogging({log, healthMonitor})
   collectDefaultMetrics({register: registry})
+  log.info({reqId})
 }
 
 const createStop = () => async () => {}
