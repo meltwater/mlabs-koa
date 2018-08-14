@@ -30,6 +30,11 @@ const createApp = () => {
   const router = new Router()
 
   router.get('/health', koaHealthy())
+  router.get('/puppies/:id', ctx => {
+    const puppies = ctx.state.container.resolve('puppies')
+    ctx.body = {data: puppies.get(ctx.params.id)}
+    ctx.status = 200
+  })
   app.use(koaMount('/api/v1', router.routes()))
   app.use(koaMount('/api/v1', router.allowedMethods()))
 
@@ -37,12 +42,16 @@ const createApp = () => {
 }
 
 const createPuppies = ({log, reqId}) => {
+  const get = id => {
+    log.info('Bark')
+    return id
+  }
   const health = async () => {
     log.child({service: 'puppies', reqId}).info('Health: Start')
     await sleeP(4000)
     return true
   }
-  return {health}
+  return {health, get}
 }
 
 const createDependencies = ({log, config}) => {
