@@ -75,14 +75,14 @@
     cache-manager "^2.4.0"
     uuid "^3.1.0"
 
-"@meltwater/mlabs-logger@^4.1.1":
-  version "4.1.1"
-  resolved "https://registry.yarnpkg.com/@meltwater/mlabs-logger/-/mlabs-logger-4.1.1.tgz#4fe8fdf92979692ce28b502d4db24a4a61826c16"
+"@meltwater/mlabs-logger@^5.0.0":
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/@meltwater/mlabs-logger/-/mlabs-logger-5.0.0.tgz#1ac169f018126236ecb0d88918e9a1b7de353772"
   dependencies:
     "@meltwater/examplr" "^4.1.4"
     bunyan-formatter "^1.0.0"
     debug "^3.0.0"
-    pino "^4.15.3"
+    pino "^5.4.0"
 
 "@meltwater/phi@^2.0.0":
   version "2.0.0"
@@ -2370,9 +2370,17 @@ fast-levenshtein@~2.0.4:
   version "2.0.6"
   resolved "https://registry.yarnpkg.com/fast-levenshtein/-/fast-levenshtein-2.0.6.tgz#3d8a5c66883a16a30ca8643e851f19baa7797917"
 
+fast-redact@^1.1.14:
+  version "1.1.14"
+  resolved "https://registry.yarnpkg.com/fast-redact/-/fast-redact-1.1.14.tgz#95e5a05c8046b9cd61a203266a4acb2ae635574f"
+
 fast-safe-stringify@^1.0.8, fast-safe-stringify@^1.2.3:
   version "1.2.3"
   resolved "https://registry.yarnpkg.com/fast-safe-stringify/-/fast-safe-stringify-1.2.3.tgz#9fe22c37fb2f7f86f06b8f004377dbf8f1ee7bc1"
+
+fast-safe-stringify@^2.0.4:
+  version "2.0.6"
+  resolved "https://registry.yarnpkg.com/fast-safe-stringify/-/fast-safe-stringify-2.0.6.tgz#04b26106cc56681f51a044cfc0d76cf0008ac2c2"
 
 fbjs@^0.8.16:
   version "0.8.16"
@@ -4957,6 +4965,10 @@ pino-std-serializers@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/pino-std-serializers/-/pino-std-serializers-2.0.0.tgz#63cbacf34bed8c95dd2c67eec824e48b8dd3445f"
 
+pino-std-serializers@^2.2.0:
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/pino-std-serializers/-/pino-std-serializers-2.2.1.tgz#ceb583374358c75949e9c4ddbdd690428c15958e"
+
 pino@^4.15.3:
   version "4.16.1"
   resolved "https://registry.yarnpkg.com/pino/-/pino-4.16.1.tgz#8bcb6b685ee4d4e26adfe79a05f12f6b46962d40"
@@ -4969,6 +4981,19 @@ pino@^4.15.3:
     pump "^3.0.0"
     quick-format-unescaped "^1.1.2"
     split2 "^2.2.0"
+
+pino@^5.4.0:
+  version "5.4.0"
+  resolved "https://registry.yarnpkg.com/pino/-/pino-5.4.0.tgz#4db57e4b603eca7059e9802b99ae734af835be79"
+  dependencies:
+    fast-json-parse "^1.0.3"
+    fast-redact "^1.1.14"
+    fast-safe-stringify "^2.0.4"
+    flatstr "^1.0.5"
+    pino-std-serializers "^2.2.0"
+    pump "^3.0.0"
+    quick-format-unescaped "^3.0.0"
+    sonic-boom "^0.6.0"
 
 pkg-conf@^2.0.0:
   version "2.1.0"
@@ -5133,6 +5158,10 @@ quick-format-unescaped@^1.1.2:
   resolved "https://registry.yarnpkg.com/quick-format-unescaped/-/quick-format-unescaped-1.1.2.tgz#0ca581de3174becef25ac3c2e8956342381db698"
   dependencies:
     fast-safe-stringify "^1.0.8"
+
+quick-format-unescaped@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/quick-format-unescaped/-/quick-format-unescaped-3.0.0.tgz#21e7fdc5b08b079ef71ed0728ed0725e58671e41"
 
 ramda-adjunct@~2.5.0:
   version "2.5.0"
@@ -5659,6 +5688,12 @@ snapdragon@^0.8.1:
     source-map "^0.5.6"
     source-map-resolve "^0.5.0"
     use "^3.1.0"
+
+sonic-boom@^0.6.0:
+  version "0.6.1"
+  resolved "https://registry.yarnpkg.com/sonic-boom/-/sonic-boom-0.6.1.tgz#da832af4ed7c477eb5317fe4c5132c75f7556245"
+  dependencies:
+    flatstr "^1.0.5"
 
 sort-keys@^2.0.0:
   version "2.0.0"
