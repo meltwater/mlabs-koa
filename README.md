@@ -257,8 +257,8 @@ Automatically fix most JavaScript formatting errors with
 $ yarn run format
 ```
 
-[gulp]: http://gulpjs.com/
-[JavaScript Standard Style]: http://standardjs.com/
+[gulp]: https://gulpjs.com/
+[JavaScript Standard Style]: https://standardjs.com/
 [JSON Lint]: https://github.com/zaach/jsonlint
 
 #### Tests
