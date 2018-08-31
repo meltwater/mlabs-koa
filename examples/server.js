@@ -20,7 +20,7 @@ const createHealthMonitor = () => createMlabsHealthMonitor({
 const createStart = ({reqId, log, registry, healthMonitor}) => async () => {
   healthLogging({log, healthMonitor})
   collectDefaultMetrics({register: registry})
-  log.info({reqId})
+  log.info({reqId}, 'Start')
 }
 
 const createStop = () => async () => {}
