@@ -93,7 +93,7 @@ as it has no external dependencies.
 
 #### Arguments
 
-1. `url` (*string*): The URL to get.
+1. `options` (*object*): The options to pass to `http.request`.
 
 #### Returns
 
