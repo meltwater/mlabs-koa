@@ -25,7 +25,7 @@ const defaultOptions = {}
 if (require.main === module) {
   const { runExample } = createExamples({
     createLogger,
-    logFilters: {noLifecycle},
+    logFilters: { noLifecycle },
     examples,
     envVars,
     defaultOptions

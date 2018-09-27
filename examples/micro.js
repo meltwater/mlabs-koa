@@ -1,8 +1,8 @@
 import { createServer } from '../lib'
 
-export default ({log}) => (port = 9000) => {
+export default ({ log }) => (port = 9000) => {
   const { configFactory, run } = createServer()
-  configFactory.addOverride({port})
+  configFactory.addOverride({ port })
   run(configFactory)
   return new Promise(() => {})
 }

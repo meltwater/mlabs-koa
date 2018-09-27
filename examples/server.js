@@ -17,10 +17,10 @@ const createHealthMonitor = () => createMlabsHealthMonitor({
   puppies: container => container.resolve('puppies')
 })
 
-const createStart = ({reqId, log, registry, healthMonitor}) => async () => {
-  healthLogging({log, healthMonitor})
-  collectDefaultMetrics({register: registry})
-  log.info({reqId}, 'Start')
+const createStart = ({ reqId, log, registry, healthMonitor }) => async () => {
+  healthLogging({ log, healthMonitor })
+  collectDefaultMetrics({ register: registry })
+  log.info({ reqId }, 'Start')
 }
 
 const createStop = () => async () => {}
@@ -32,7 +32,7 @@ const createApp = () => {
   router.get('/health', koaHealthy())
   router.get('/puppies/:id', ctx => {
     const puppies = ctx.state.container.resolve('puppies')
-    ctx.body = {data: puppies.get(ctx.params.id)}
+    ctx.body = { data: puppies.get(ctx.params.id) }
     ctx.status = 200
   })
   app.use(koaMount('/api/v1', router.routes()))
@@ -41,26 +41,26 @@ const createApp = () => {
   return app
 }
 
-const createPuppies = ({log, reqId}) => {
+const createPuppies = ({ log, reqId }) => {
   const get = id => {
     log.info('Bark')
     return id
   }
   const health = async () => {
-    log.child({service: 'puppies', reqId}).info('Health: Start')
+    log.child({ service: 'puppies', reqId }).info('Health: Start')
     await sleeP(4000)
     return true
   }
-  return {health, get}
+  return { health, get }
 }
 
-const createDependencies = ({log, config}) => {
+const createDependencies = ({ log, config }) => {
   const container = createContainer()
 
   container.register({
     log: asValue(log),
     registry: asClass(Registry).singleton(),
-    healthMethods: asValue({health: createHealthy()}),
+    healthMethods: asValue({ health: createHealthy() }),
     healthMonitor: asFunction(createHealthMonitor).singleton(),
     start: asFunction(createStart).singleton(),
     stop: asFunction(createStop).singleton(),
@@ -76,14 +76,14 @@ const createDependencies = ({log, config}) => {
 
 // NOTE: This example does not use config files,
 // but must still pass a configPath.
-export default ({log}) => (port = 9000) => {
+export default ({ log }) => (port = 9000) => {
   const { configFactory, run } = createServer({
-    logFilters: {noLifecycle},
+    logFilters: { noLifecycle },
     configPath: __dirname,
     createDependencies
   })
 
-  configFactory.addOverride({port})
+  configFactory.addOverride({ port })
 
   run(configFactory)
   return new Promise(() => {})
