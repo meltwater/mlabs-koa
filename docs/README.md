@@ -4,7 +4,7 @@
 
 - [`createServer(options)`](#createserveroptions)
 - [`koaHealthy(options)`](#koahealthyoptions)
-- [`httpGetJson(url)`](#httpgetjsonurl)
+- [`httpGetJson(options)`](#httpgetjsonoptions)
 
 ### Importing
 
@@ -84,7 +84,7 @@ This middleware is mounted at `/ping` by default.
       Default: true.
 
 ---
-### `httpGetJson(url)`
+### `httpGetJson(options)`
 
 Convenience method for making a single http GET request
 and returning the parsed JSON response wrapped in a promise.

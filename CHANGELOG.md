@@ -10,7 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 ### Changed
 
 - (*Breaking*) `httpGetJson` takes an options object and not a string.
-  The string parameter was incompatible with how `http.request`.
+  The string parameter was incompatible with `http.request`.
 - Update to koa-mount v4.
 - Update to new minimum @meltwater package versions.
 - Update to @meltwater/mlabs-logger v5.0.0.
