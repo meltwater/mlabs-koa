@@ -1,5 +1,5 @@
 import { createContainer, asClass, asValue, asFunction } from 'awilix'
-import { collectDefaultMetrics, Registry } from 'prom-client'
+import { collectDefaultMetrics, Registry, Counter } from 'prom-client'
 import Koa from 'koa'
 import Router from 'koa-router'
 import koaMount from 'koa-mount'
@@ -17,9 +17,16 @@ const createHealthMonitor = () => createMlabsHealthMonitor({
   puppies: container => container.resolve('puppies')
 })
 
-const createStart = ({ reqId, log, registry, healthMonitor }) => async () => {
+const metricDefs = [{
+  name: 'puppies_total',
+  help: 'Number of puppies',
+  type: Counter
+}]
+
+const createStart = ({ reqId, log, registry, healthMonitor, collectAppMetrics }) => async () => {
   healthLogging({ log, healthMonitor })
   collectDefaultMetrics({ register: registry })
+  collectAppMetrics({ register: registry })
   log.info({ reqId }, 'Start')
 }
 
@@ -32,6 +39,8 @@ const createApp = () => {
   router.get('/health', koaHealthy())
   router.get('/puppies/:id', ctx => {
     const puppies = ctx.state.container.resolve('puppies')
+    const metrics = ctx.state.container.resolve('metrics')
+    metrics.puppies_total.inc()
     ctx.body = { data: puppies.get(ctx.params.id) }
     ctx.status = 200
   })
@@ -59,6 +68,7 @@ const createDependencies = ({ log, config }) => {
 
   container.register({
     log: asValue(log),
+    metricDefs: asValue(metricDefs),
     registry: asClass(Registry).singleton(),
     healthMethods: asValue({ health: createHealthy() }),
     healthMonitor: asFunction(createHealthMonitor).singleton(),
