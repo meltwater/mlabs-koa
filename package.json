@@ -100,7 +100,7 @@
   },
   "peerDependencies": {
     "@meltwater/mlabs-health": "^1.0",
-    "awilix": "^3.0",
+    "awilix": "^4.0",
     "koa": "^2.0",
     "prom-client": "^11.0"
   },
@@ -129,7 +129,7 @@
     "@meltwater/examplr": "^4.2.0",
     "@meltwater/mlabs-health": "^1.1.4",
     "ava": "^1.0.0-beta.8",
-    "awilix": "^3.0.0",
+    "awilix": "^4.0.0",
     "del-cli": "^1.0.0",
     "gulp": "^4.0.0",
     "gulp-cli": "^2.0.0",
