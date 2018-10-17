@@ -122,8 +122,56 @@ and may be registered in `createDependencies`
 - `stop`: Async function to wait on before server shutdown:
   called after server has stopped accepting new connections.
 - `app`: The Koa app to mount.
-- `registry`: A [Prometheus Registry]:
-   only required for exporting metrics via the metrics middleware.
+
+### Metrics
+
+Additionally, the following optional dependencies are registered
+to support custom app metrics.
+Only `metricDefs` needs to be registered to get app metrics.
+
+To define app metrics, simply register `metricDefs`
+and call `collectAppMetrics` on start.
+Access individual metrics via the `metrics` dependency.
+The `metrics` config property may be used for run-time customization.
+See the server example for how to define and use custom metrics.
+
+- `metricDefs`: Array of metric definitions (see below).
+- `metrics` (also aliased to `appMetrics`):
+  An object of the defined Prometheus metrics (see below).
+  This is generated automatically and should not need to be overridden.
+- `metricPrefix`: Prefix to prepend to all app metrics.
+  Set via config property `metrics.prefix`.
+  Default is `koa_app_`.
+- `metricOptions`: Options to merge into metrics definitions.
+  Set via config property `metrics.options`.
+- `registry`: A [Prometheus Registry].
+- `collectAppMetrics`: Function which takes `{registry}` and registers all app metrics.
+
+#### Metric Definitions
+
+Each must has a `type` whose value is the metric constructor.
+The remaining properties will be passed to the constructor
+and registered with the registry.
+
+For example,
+
+```js
+import { Counter } from 'prom-client'
+
+const metricDefs = [{
+  name: 'metric_name',
+  help: 'Metic help',
+  labels: ['metric_label'],
+  type: Counter
+}]
+```
+
+On app start, call `collectAppMetrics({ registry })`,
+then, metrics may then be accessed (without using the prefix) via
+
+```js
+metrics.metric_name.inc()
+```
 
 ## Config and Middleware
 
@@ -208,6 +256,11 @@ and used to determine log options; they are not passed through.
       Default: automatically determined from the package name.
     - `version`: Adds `version` to logs (override with `LOG_VERSION`).
       Default: set from package and version.
+
+#### `metrics`
+
+- `prefix`: Prefix to prepend to all app metrics.
+- `options`: Options to merge into each metric definition.
 
 ---
 #### `koa`
@@ -421,6 +474,14 @@ These values are not necessarily the defaults.
     "base": {"jedi": true},
     "filter": "onlyJedi",
     "outputMode": "pretty"
+  },
+  "metrics": {
+    "prefix": "my_app_",
+    "options": {
+      'barks_per_puppy': {
+        buckets: [0, 200, 300, 800]
+      }
+    }
   },
   "koa": {
     "responseTime": {
