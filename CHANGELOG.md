@@ -19,6 +19,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 - (**Breaking**) Update Awilix peer dependency to version 4.
 - (**Breaking**) `isLifecycle` log property renamed to `isLifecycleLog`.
 
+### Fixed
+
+- Use final logger to ensure logging on exit.
+
 ## [6.0.0] / 2018-09-27
 
 ### Changed
