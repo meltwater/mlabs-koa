@@ -8,22 +8,14 @@ import {
   healthLogging,
   createHealthy
 } from '@meltwater/mlabs-health'
-import { sleeP } from '@meltwater/phi'
+import { objFromKeys, sleeP } from '@meltwater/phi'
 
-import { createServer, koaHealthy } from '../lib'
+import { createServer, koaHealthy, createHealthCheck } from '../lib'
 import { noLifecycle } from './filters'
 
-const health = name => container => {
-  const subcontainer = container.createScope()
-  const log = subcontainer.resolve('log')
-  const childLog = log.child({ isHealthLog: true })
-  subcontainer.register('log', asValue(childLog))
-  return container.resolve(name)
-}
-
-const createHealthMonitor = () => createMlabsHealthMonitor({
-  puppies: health('puppies')
-})
+const createHealthMonitor = () => createMlabsHealthMonitor(
+  objFromKeys(createHealthCheck, ['puppies'])
+)
 
 const metricDefs = [{
   name: 'puppies_total',

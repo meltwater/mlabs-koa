@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ### Added
 
+- `createHealthCheck` function.
 - App metrics via new dependencies and config options.
 - Top level log properties to categorize log messages:
   `isLifecycleLog`, `isRequestLog`, `isAppLog`, and `isHealthLog`.

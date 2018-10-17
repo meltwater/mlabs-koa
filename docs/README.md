@@ -4,6 +4,7 @@
 
 - [`createServer(options)`](#createserveroptions)
 - [`koaHealthy(options)`](#koahealthyoptions)
+- [`createHealthCheck(name)`](#createhealthcheckname)
 - [`httpGetJson(options)`](#httpgetjsonoptions)
 
 ### Importing
@@ -82,6 +83,34 @@ This middleware is mounted at `/ping` by default.
     - `isHealthy` (*boolean*):
       If the middleware will set 200 or 503 status.
       Default: true.
+
+---
+### `createHealthCheck(name)`
+
+Function for creating health checks from registered dependencies.
+
+Takes the name of a dependency and returns a function
+that accepts the container and returns the resolved dependency by name.
+A scope is created with a child logger setting `isHealthLog` true.
+
+#### Arguments
+
+1. `name` (*string* **required**):
+   The name of the dependency to resolve for the health check.
+
+#### Returns
+
+(*function*) Health check to use with `createHealthMonitor`
+
+#### Example
+
+```
+import { createHealthMonitor } from '@meltwater/mlabs-health'
+
+createHealthMonitor({
+  puppies: createHealthCheck('puppies')
+})
+```
 
 ---
 ### `httpGetJson(options)`
