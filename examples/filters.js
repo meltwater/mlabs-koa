@@ -1,1 +1,1 @@
-export const noLifecycle = ({ isLifecycle }) => !isLifecycle
+export const noLifecycle = ({ isLifeCycleLog }) => !isLifeCycleLog
