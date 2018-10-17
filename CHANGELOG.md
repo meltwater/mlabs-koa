@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 ### Added
 
 - `createHealthCheck` function.
+- New option `exitOnUnhandledRejection` (default `true`).
 - App metrics via new dependencies and config options.
 - Top level log properties to categorize log messages:
   `isLifecycleLog`, `isRequestLog`, `isAppLog`, and `isHealthLog`.
@@ -17,6 +18,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 ### Changed
 
 - (**Breaking**) Update Awilix peer dependency to version 4.
+- (**Breaking**) Process will exit on `unhandledRejection`.
+  Disable this with the config option `exitOnUnhandledRejection`.
 - (**Breaking**) `isLifecycle` log property renamed to `isLifecycleLog`.
 
 ### Fixed

@@ -252,6 +252,11 @@ Default is `0`.
 If the server will initiate shutdown when it detects configuration changes.
 Default is `true`.
 
+#### `exitOnUnhandledRejection`
+
+If the server will exit on the `unhandledRejection` event.
+Default is `true`.
+
 #### `exitOnFalseStart`
 
 If the server will exit when the `start` promise rejects.
@@ -494,6 +499,7 @@ These values are not necessarily the defaults.
   "port": 80,
   "shutdownDelay": 1000,
   "shutdownOnChange": false,
+  "exitOnUnhandledRejection": true,
   "exitOnFalseStart": true,
   "log": {
     "level": "info",
