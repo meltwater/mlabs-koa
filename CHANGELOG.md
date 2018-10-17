@@ -10,10 +10,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 ### Added
 
 - App metrics via new dependencies and config options.
+- Top level log properties to categorize log messages:
+  `isLifecycleLog`, `isRequestLog`, `isAppLog`, and `isHealthLog`.
 
 ### Changed
 
 - (**Breaking**) Update Awilix peer dependency to version 4.
+- (**Breaking**) `isLifecycle` log property renamed to `isLifecycleLog`.
 
 ## [6.0.0] / 2018-09-27
 

@@ -13,8 +13,16 @@ import { sleeP } from '@meltwater/phi'
 import { createServer, koaHealthy } from '../lib'
 import { noLifecycle } from './filters'
 
+const health = name => container => {
+  const subcontainer = container.createScope()
+  const log = subcontainer.resolve('log')
+  const childLog = log.child({ isHealthLog: true })
+  subcontainer.register('log', asValue(childLog))
+  return container.resolve(name)
+}
+
 const createHealthMonitor = () => createMlabsHealthMonitor({
-  puppies: container => container.resolve('puppies')
+  puppies: health('puppies')
 })
 
 const metricDefs = [{
@@ -24,7 +32,10 @@ const metricDefs = [{
 }]
 
 const createStart = ({ reqId, log, registry, healthMonitor, collectAppMetrics }) => async () => {
-  healthLogging({ log, healthMonitor })
+  healthLogging({
+    log: log.child({ isHealthLog: true, isAppLog: false }),
+    healthMonitor
+  })
   collectDefaultMetrics({ register: registry })
   collectAppMetrics({ register: registry })
   log.info({ reqId }, 'Start')
