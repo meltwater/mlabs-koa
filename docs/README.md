@@ -145,7 +145,7 @@ See the server example for how to define and use custom metrics.
 - `metricOptions`: Options to merge into metrics definitions.
   Set via config property `metrics.options`.
 - `registry`: A [Prometheus Registry].
-- `collectAppMetrics`: Function which takes `{registry}` and registers all app metrics.
+- `collectAppMetrics`: Function which takes `{register}` and registers all app metrics.
 
 #### Metric Definitions
 
@@ -166,7 +166,7 @@ const metricDefs = [{
 }]
 ```
 
-On app start, call `collectAppMetrics({ registry })`,
+On app start, call `collectAppMetrics({ register })`,
 then metrics may be accessed (without using the prefix) via
 
 ```js
