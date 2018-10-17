@@ -479,7 +479,7 @@ These values are not necessarily the defaults.
     "prefix": "my_app_",
     "options": {
       "barks_per_puppy": {
-        buckets: [0, 200, 300, 800]
+        "buckets": [0, 200, 300, 800]
       }
     }
   },
