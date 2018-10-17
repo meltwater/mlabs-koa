@@ -167,7 +167,7 @@ const metricDefs = [{
 ```
 
 On app start, call `collectAppMetrics({ registry })`,
-then, metrics may then be accessed (without using the prefix) via
+then metrics may be accessed (without using the prefix) via
 
 ```js
 metrics.metric_name.inc()
@@ -478,7 +478,7 @@ These values are not necessarily the defaults.
   "metrics": {
     "prefix": "my_app_",
     "options": {
-      'barks_per_puppy': {
+      "barks_per_puppy": {
         buckets: [0, 200, 300, 800]
       }
     }
