@@ -128,7 +128,7 @@
     "@babel/register": "^7.0.0",
     "@meltwater/examplr": "^4.2.0",
     "@meltwater/mlabs-health": "^1.1.4",
-    "ava": "^1.0.0-beta.8",
+    "ava": "^1.0.1",
     "awilix": "^4.0.0",
     "del-cli": "^1.0.0",
     "gulp": "^4.0.0",
