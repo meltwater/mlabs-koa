@@ -151,6 +151,7 @@ and may be registered in `createDependencies`
 - `stop`: Async function to wait on before server shutdown:
   called after server has stopped accepting new connections.
 - `app`: The Koa app to mount.
+- `server`: The HTTP server (cannot be overridden).
 
 ### Metrics
 
