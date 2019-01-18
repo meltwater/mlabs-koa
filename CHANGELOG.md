@@ -5,6 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [7.2.0] / 2019-01-18
+
+### Added
+
+- Request logs now include `reqMethod`, `reqUrl`, and `resStatusCode`
+  at the top-level.
+
 ## [7.1.1] / 2019-01-05
 
 ### Changed
@@ -266,7 +273,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 [makenew-node-lib]: https://github.com/meltwater/makenew-node-lib
 
-[Unreleased]: https://github.com/meltwater/mlabs-koa/compare/v7.1.1...HEAD
+[Unreleased]: https://github.com/meltwater/mlabs-koa/compare/v7.2.0...HEAD
+[7.2.0]: https://github.com/meltwater/mlabs-koa/compare/v7.1.1...v7.2.0
 [7.1.1]: https://github.com/meltwater/mlabs-koa/compare/v7.1.0...v7.1.1
 [7.1.0]: https://github.com/meltwater/mlabs-koa/compare/v7.0.1...v7.1.0
 [7.0.1]: https://github.com/meltwater/mlabs-koa/compare/v7.0.0...v7.0.1
