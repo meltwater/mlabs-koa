@@ -108,6 +108,7 @@
     "@koa/cors": "^2.2.1",
     "@meltwater/mlabs-logger": "^5.1.1",
     "@meltwater/phi": "^3.0.0",
+    "awaiting": "^3.0.0",
     "boom": "^7.1.1",
     "chokidar": "^2.0.0",
     "confit": "^2.2.1",

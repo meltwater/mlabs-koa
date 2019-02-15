@@ -263,6 +263,12 @@ Default is `true`.
 If the server will exit when the `start` promise rejects.
 Default is `true`.
 
+#### `shutdownTimeout`
+
+Number of milliseconds to wait for `stop` promise to resolve
+before forcibly exiting.
+Default is `60000` (1 minute).
+
 #### `log`
 
 Object passed directly to the [logger] `createLogger` function.
@@ -502,6 +508,7 @@ These values are not necessarily the defaults.
   "shutdownOnChange": false,
   "exitOnUnhandledRejection": true,
   "exitOnFalseStart": true,
+  "shutdownTimeout": 10000,
   "log": {
     "level": "info",
     "env": "space",

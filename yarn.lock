@@ -1207,6 +1207,11 @@ ava@^1.0.1:
     unique-temp-dir "^1.0.0"
     update-notifier "^2.5.0"
 
+awaiting@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/awaiting/-/awaiting-3.0.0.tgz#d73d0530167dca480965ff1f10ee6959f70fb515"
+  integrity sha1-1z0FMBZ9ykgJZf8fEO5pWfcPtRU=
+
 awilix@^4.0.0:
   version "4.1.0"
   resolved "https://registry.yarnpkg.com/awilix/-/awilix-4.1.0.tgz#c6379cfad50a5b824b3db62d22a144b4c0dbf2b1"
