@@ -5,6 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [7.3.1] / 2019-02-20
+
+### Fixed
+
+- Race condition on startup config watcher:
+  see https://github.com/paulmillr/chokidar/issues/612.
+
 ## [7.3.0] / 2019-02-15
 
 ### Added
@@ -279,7 +286,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 [makenew-node-lib]: https://github.com/meltwater/makenew-node-lib
 
-[Unreleased]: https://github.com/meltwater/mlabs-koa/compare/v7.3.0...HEAD
+[Unreleased]: https://github.com/meltwater/mlabs-koa/compare/v7.3.1...HEAD
+[7.3.1]: https://github.com/meltwater/mlabs-koa/compare/v7.3.0...v7.3.1
 [7.3.0]: https://github.com/meltwater/mlabs-koa/compare/v7.2.0...v7.3.0
 [7.2.0]: https://github.com/meltwater/mlabs-koa/compare/v7.1.1...v7.2.0
 [7.1.1]: https://github.com/meltwater/mlabs-koa/compare/v7.1.0...v7.1.1
