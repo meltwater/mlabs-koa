@@ -53,6 +53,11 @@ under `ctx.state.container`.
     Takes a single argument, the error, then immediately logs the error
     and exits the process with exit code 2.
     If no error is passed, the exit code will be 0.
+  - `watcher` (*object*):
+    The initial `chokidar` watcher for config file changes.
+    If loading config data before calling `run`,
+    ensure to wait for the `ready` event before reading any config files.
+  - `ready`: (*boolean*): If the watcher ready event has fired.
 
 #### Example
 
