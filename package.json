@@ -106,7 +106,7 @@
   },
   "dependencies": {
     "@koa/cors": "^2.2.1",
-    "@meltwater/mlabs-logger": "^5.1.1",
+    "@meltwater/mlabs-logger": "^5.2.0",
     "@meltwater/phi": "^3.0.0",
     "awaiting": "^3.0.0",
     "boom": "^7.1.1",
@@ -128,7 +128,7 @@
     "@babel/preset-env": "^7.0.0",
     "@babel/register": "^7.0.0",
     "@meltwater/examplr": "^4.2.0",
-    "@meltwater/mlabs-health": "^1.1.4",
+    "@meltwater/mlabs-health": "^1.2.0",
     "ava": "^1.0.1",
     "awilix": "^4.0.0",
     "del-cli": "^1.0.0",
