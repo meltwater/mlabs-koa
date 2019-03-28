@@ -105,7 +105,7 @@
     "prom-client": "^11.0"
   },
   "dependencies": {
-    "@koa/cors": "^2.2.1",
+    "@koa/cors": "^3.0.0",
     "@meltwater/mlabs-logger": "^5.2.0",
     "@meltwater/phi": "^3.0.0",
     "awaiting": "^3.0.0",
