@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [7.5.0] / 2019-03-28
+
+### Changed
+
+- Update to @meltwater/mlabs-health v1.2.0.
+- Update to @meltwater/mlabs-logger v5.2.0.
+- Update to @koa/cors v3.
+
 ## [7.4.0] / 2019-02-27
 
 ### Added
@@ -302,7 +310,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 [makenew-node-lib]: https://github.com/meltwater/makenew-node-lib
 
-[Unreleased]: https://github.com/meltwater/mlabs-koa/compare/v7.4.0...HEAD
+[Unreleased]: https://github.com/meltwater/mlabs-koa/compare/v7.5.0...HEAD
+[7.5.0]: https://github.com/meltwater/mlabs-koa/compare/v7.4.0...v7.5.0
 [7.4.0]: https://github.com/meltwater/mlabs-koa/compare/v7.3.2...v7.4.0
 [7.3.2]: https://github.com/meltwater/mlabs-koa/compare/v7.3.1...v7.3.2
 [7.3.1]: https://github.com/meltwater/mlabs-koa/compare/v7.3.0...v7.3.1
