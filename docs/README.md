@@ -246,6 +246,12 @@ The port number to run the server on.
 Override with `PORT`.
 Default is `80`.
 
+#### `startupDelay`
+
+The number of milliseconds the sever will wait before start.
+Override with `STARTUP_DELAY`.
+Default is `0`.
+
 #### `shutdownDelay`
 
 The number of milliseconds the sever will wait after receiving
@@ -509,6 +515,7 @@ These values are not necessarily the defaults.
 ```json
 {
   "port": 80,
+  "startupDelay": 1000,
   "shutdownDelay": 1000,
   "shutdownOnChange": false,
   "exitOnUnhandledRejection": true,
