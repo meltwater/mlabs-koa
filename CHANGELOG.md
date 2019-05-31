@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [7.9.0] / 2019-05-31
+
+### Added
+
+- Merge `process.versions` into root package data.
+
 ## [7.8.0] / 2019-05-09
 
 ### Added
@@ -338,7 +344,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 [makenew-node-lib]: https://github.com/meltwater/makenew-node-lib
 
-[Unreleased]: https://github.com/meltwater/mlabs-koa/compare/v7.8.0...HEAD
+[Unreleased]: https://github.com/meltwater/mlabs-koa/compare/v7.9.0...HEAD
+[7.9.0]: https://github.com/meltwater/mlabs-koa/compare/v7.8.0...v7.9.0
 [7.8.0]: https://github.com/meltwater/mlabs-koa/compare/v7.7.1...v7.8.0
 [7.7.1]: https://github.com/meltwater/mlabs-koa/compare/v7.7.0...v7.7.1
 [7.7.0]: https://github.com/meltwater/mlabs-koa/compare/v7.6.0...v7.7.0
