@@ -412,6 +412,13 @@ Errors are sent as a response body in the standard format
 For each request, registers `log` and `reqId` in the scoped container.
 
 ---
+##### `cors`
+
+Uses [koa-cors] but with these additional options:
+
+- `origins`: List of origin globs to match that will allow CORS (uses [minimatch]).
+
+---
 ##### `favicon`
 
 Takes configuration for [koa-favicon](https://github.com/koajs/favicon)
@@ -566,6 +573,7 @@ These values are not necessarily the defaults.
       "disable": false
     },
     "cors": {
+      "origins": ["localhost", "*.example.com", "example.com"],
       "disable": false
     },
     "conditionalGet": {
@@ -623,3 +631,5 @@ These values are not necessarily the defaults.
 [createHealthy]: https://github.com/meltwater/mlabs-health/tree/master/docs#createhealthyoptions
 [koa-logger]: https://github.com/koajs/logger
 [Prometheus Registry]: https://github.com/siimon/prom-client#multiple-registries
+[koa-cors]: https://github.com/koajs/cors
+[minimatch]: https://github.com/isaacs/minimatch
