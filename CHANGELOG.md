@@ -11,6 +11,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 - New option `origins` to `cors` config to whitelist origins.
 
+### Changed
+
+- Update to koa-helmet v5.
+
 ## [7.9.0] / 2019-05-31
 
 ### Added
