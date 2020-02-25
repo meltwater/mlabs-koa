@@ -1278,10 +1278,12 @@ async@1.5.2:
   resolved "https://registry.yarnpkg.com/async/-/async-1.5.2.tgz#ec6a61ae56480c0c3cb241c95618e20892f9672a"
   integrity sha1-7GphrlZIDAw8skHJVhjiCJL5Zyo=
 
-async@^0.9.0:
-  version "0.9.2"
-  resolved "https://registry.yarnpkg.com/async/-/async-0.9.2.tgz#aea74d5e61c1f899613bf64bda66d4c78f2fd17d"
-  integrity sha1-rqdNXmHB+JlhO/ZL2mbUx48v0X0=
+async@^2.6.3:
+  version "2.6.3"
+  resolved "https://registry.yarnpkg.com/async/-/async-2.6.3.tgz#d72625e2344a3656e3a3ad4fa749fa83299d82ff"
+  integrity sha512-zflvls11DCy+dQWzTW2dzuilv8Z5X/pjfmZOWba6TNIVDm+2UDaJmXSOXlasHKfNBs8oo3M0aT50fDEWfKZjXg==
+  dependencies:
+    lodash "^4.17.14"
 
 async@~0.2.10:
   version "0.2.10"
@@ -1370,11 +1372,6 @@ babel-plugin-dynamic-import-node@^2.3.0:
   integrity sha512-o6qFkpeQEBxcqt0XYlWzAVxNCSCZdUgcR8IRlhD/8DylxjjO4foPcvTW0GGKa/cVt3rvxZ7o5ippJ+/0nvLhlQ==
   dependencies:
     object.assign "^4.1.0"
-
-babel-runtime@4.7.3:
-  version "4.7.3"
-  resolved "https://registry.yarnpkg.com/babel-runtime/-/babel-runtime-4.7.3.tgz#acc0b6194de6e0ca8efed0b97b639366e6495031"
-  integrity sha1-rMC2GU3m4MqO/tC5e2OTZuZJUDE=
 
 bach@^1.0.0:
   version "1.2.0"
@@ -1596,7 +1593,7 @@ caching-transform@^4.0.0:
     package-hash "^4.0.0"
     write-file-atomic "^3.0.0"
 
-caller@^1.0.0, caller@^1.0.1:
+caller@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/caller/-/caller-1.0.1.tgz#b851860f70e195db3d277395aa1a7e23ea30ecf5"
   integrity sha1-uFGGD3Dhlds9J3OVqhp+I+ow7PU=
@@ -2042,19 +2039,18 @@ configstore@^5.0.1:
     write-file-atomic "^3.0.0"
     xdg-basedir "^4.0.0"
 
-confit@^2.2.1:
-  version "2.3.0"
-  resolved "https://registry.yarnpkg.com/confit/-/confit-2.3.0.tgz#79c5c08e9d82214d53782ca557eabcf4c9d4bbf1"
-  integrity sha1-ecXAjp2CIU1TeCylV+q89MnUu/E=
+confit@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/confit/-/confit-3.0.0.tgz#415bc2854b577291d833ca2771eda6c219b3f8f3"
+  integrity sha512-lKHFqCxlL/mKWZOHHF31K0lH5Ilvb6sT3fYLt8U3hmm4HRcuYh1F025gSRoVAhjSwIZ+FTvl4nmIfz7bDmvU+g==
   dependencies:
-    async "^0.9.0"
-    babel-runtime "4.7.3"
-    caller "^1.0.0"
-    core-util-is "^1.0.1"
+    async "^2.6.3"
+    caller "^1.0.1"
+    core-util-is "^1.0.2"
     debuglog "^1.0.1"
-    minimist "^1.1.0"
-    shortstop "^1.0.1"
-    shortstop-handlers "^1.0.0"
+    minimist "^1.2.0"
+    shortstop "^1.0.3"
+    shortstop-handlers "^1.0.1"
     shush "^1.0.0"
 
 constant-case@^3.0.3:
@@ -2134,7 +2130,7 @@ core-js@^3.2.1:
   resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.6.4.tgz#440a83536b458114b9cb2ac1580ba377dc470647"
   integrity sha512-4paDGScNgZP2IXXilaffL9X7968RuvwlkK3xWtZRVqgd8SYNiVKRJvkFd1aqqEuPfN7E68ZHEp9hDj6lHj4Hyw==
 
-core-util-is@^1.0.1, core-util-is@~1.0.0, core-util-is@~1.0.1:
+core-util-is@^1.0.1, core-util-is@^1.0.2, core-util-is@~1.0.0, core-util-is@~1.0.1:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/core-util-is/-/core-util-is-1.0.2.tgz#b5fd54220aa2bc5ab57aab7140c940754503c1a7"
   integrity sha1-tf1UIgqivFq1eqtxQMlAdUUDwac=
@@ -6689,7 +6685,7 @@ shell-quote@^1.6.1:
   resolved "https://registry.yarnpkg.com/shell-quote/-/shell-quote-1.7.2.tgz#67a7d02c76c9da24f99d20808fcaded0e0e04be2"
   integrity sha512-mRz/m/JVscCrkMyPqHc/bczi3OQHkLTqXHEFu0zDhK/qfv3UcOA4SVmRCLmos4bhjr9ekVQubj/R7waKapmiQg==
 
-shortstop-handlers@^1.0.0:
+shortstop-handlers@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/shortstop-handlers/-/shortstop-handlers-1.0.1.tgz#0755acb6604c76c9c0e76a9e943f93790bab1dc4"
   integrity sha1-B1WstmBMdsnA52qelD+TeQurHcQ=
@@ -6698,7 +6694,7 @@ shortstop-handlers@^1.0.0:
     core-util-is "^1.0.1"
     glob "^7.0.5"
 
-shortstop@^1.0.1:
+shortstop@^1.0.3:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/shortstop/-/shortstop-1.0.3.tgz#d43769c36fee7e20a3b9bfd2d0878935ff86e7c6"
   integrity sha1-1Ddpw2/ufiCjub/S0IeJNf+G58Y=

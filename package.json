@@ -121,7 +121,7 @@
     "@meltwater/phi": "^3.0.0",
     "awaiting": "^3.0.0",
     "chokidar": "^3.0.0",
-    "confit": "^2.2.1",
+    "confit": "^3.0.0",
     "koa-conditional-get": "^2.0.0",
     "koa-etag": "^3.0.0",
     "koa-favicon": "^2.0.0",
