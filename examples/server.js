@@ -1,7 +1,7 @@
 import { createContainer, asClass, asValue, asFunction } from 'awilix'
 import { collectDefaultMetrics, Registry, Counter } from 'prom-client'
 import Koa from 'koa'
-import Router from 'koa-router'
+import Router from '@koa/router'
 import koaMount from 'koa-mount'
 import {
   createHealthMonitor as createMlabsHealthMonitor,
