@@ -14,6 +14,7 @@ export const examples = {
   server
 }
 
+// prettier-ignore
 const envVars = [
   'LOG_LEVEL',
   'LOG_FILTER',
