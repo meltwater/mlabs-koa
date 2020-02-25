@@ -13,17 +13,24 @@ import { objFromKeys, sleeP } from '@meltwater/phi'
 import { createServer, koaHealthy, createHealthCheck } from '../lib'
 import { noLifecycle } from './filters'
 
-const createHealthMonitor = () => createMlabsHealthMonitor(
-  objFromKeys(createHealthCheck, ['puppies'])
-)
+const createHealthMonitor = () =>
+  createMlabsHealthMonitor(objFromKeys(createHealthCheck, ['puppies']))
 
-const metricDefs = [{
-  name: 'puppies_total',
-  help: 'Number of puppies',
-  type: Counter
-}]
+const metricDefs = [
+  {
+    name: 'puppies_total',
+    help: 'Number of puppies',
+    type: Counter
+  }
+]
 
-const createStart = ({ reqId, log, registry, healthMonitor, collectAppMetrics }) => async () => {
+const createStart = ({
+  reqId,
+  log,
+  registry,
+  healthMonitor,
+  collectAppMetrics
+}) => async () => {
   healthLogging({
     log: log.child({ isHealthLog: true, isAppLog: false }),
     healthMonitor
