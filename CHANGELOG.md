@@ -5,6 +5,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [8.0.0] / 2020-02-25
+
+### Changed
+
+- Replace koa-router with @koa/router.
+- Update to uuid v7.
+- Update to confit to v3.
+- Update to prom-client v12.
+- Update to @hapi/boom v9.
+
 ## [7.11.0] / 2019-10-21
 
 ### Changed
@@ -360,7 +370,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 [makenew-node-lib]: https://github.com/meltwater/makenew-node-lib
 
-[Unreleased]: https://github.com/meltwater/mlabs-koa/compare/v7.11.0...HEAD
+[Unreleased]: https://github.com/meltwater/mlabs-koa/compare/v8.0.0...HEAD
+[8.0.0]: https://github.com/meltwater/mlabs-koa/compare/v7.11.0...v8.0.0
 [7.11.0]: https://github.com/meltwater/mlabs-koa/compare/v7.10.0...v7.11.0
 [7.10.0]: https://github.com/meltwater/mlabs-koa/compare/v7.9.0...v7.10.0
 [7.9.0]: https://github.com/meltwater/mlabs-koa/compare/v7.8.0...v7.9.0
