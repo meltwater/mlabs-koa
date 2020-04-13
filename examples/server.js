@@ -47,7 +47,7 @@ const createApp = () => {
   const router = new Router()
 
   router.get('/health', koaHealthy())
-  router.get('/puppies/:id', ctx => {
+  router.get('/puppies/:id', (ctx) => {
     const puppies = ctx.state.container.resolve('puppies')
     const metrics = ctx.state.container.resolve('metrics')
     metrics.puppies_total.inc()
@@ -61,7 +61,7 @@ const createApp = () => {
 }
 
 const createPuppies = ({ log, reqId }) => {
-  const get = id => {
+  const get = (id) => {
     log.info('Bark')
     return id
   }
