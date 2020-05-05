@@ -120,6 +120,7 @@
     "@meltwater/mlabs-logger": "^5.3.0",
     "@meltwater/phi": "^3.0.0",
     "awaiting": "^3.0.0",
+    "change-case": "^4.1.1",
     "chokidar": "^3.0.0",
     "confit": "^3.0.0",
     "koa-conditional-get": "^2.0.0",
