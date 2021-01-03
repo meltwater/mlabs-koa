@@ -99,7 +99,7 @@ const createDependencies = ({ log, config }) => {
 export default ({ log }) => (port = 9000) => {
   const { configFactory, run } = createServer({
     logFilters: { noLifecycle },
-    configPath: __dirname,
+    configPath: 'examples',
     createDependencies
   })
 
