@@ -1,4 +1,4 @@
-import { createServer } from '../lib'
+import { createServer } from '../index.js'
 
 export default ({ log }) => (port = 9000) => {
   const { configFactory, run } = createServer()

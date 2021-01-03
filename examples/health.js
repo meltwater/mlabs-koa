@@ -1,4 +1,4 @@
-import { httpGetJson } from '../lib'
+import { httpGetJson } from '../index.js'
 
 export default ({ log }) => async (host = 'http://localhost:9000') => {
   const url = `${host}/health`

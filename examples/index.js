@@ -3,10 +3,10 @@ import path from 'path'
 import { createExamples } from '@meltwater/examplr'
 import { createLogger } from '@meltwater/mlabs-logger'
 
-import { noLifecycle } from './filters'
-import health from './health'
-import micro from './micro'
-import server from './server'
+import { noLifecycle } from './filters.js'
+import health from './health.js'
+import micro from './micro.js'
+import server from './server.js'
 
 export const examples = {
   health,

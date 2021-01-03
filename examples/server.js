@@ -10,8 +10,8 @@ import {
 } from '@meltwater/mlabs-health'
 import { objFromKeys, sleeP } from '@meltwater/phi'
 
-import { createServer, koaHealthy, createHealthCheck } from '../lib'
-import { noLifecycle } from './filters'
+import { createServer, koaHealthy, createHealthCheck } from '../index.js'
+import { noLifecycle } from './filters.js'
 
 const createHealthMonitor = () =>
   createMlabsHealthMonitor(objFromKeys(createHealthCheck, ['puppies']))
