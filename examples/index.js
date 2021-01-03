@@ -23,16 +23,14 @@ const envVars = [
 
 const defaultOptions = {}
 
-if (require.main === module) {
-  const { runExample } = createExamples({
-    createLogger,
-    logFilters: { noLifecycle },
-    examples,
-    envVars,
-    defaultOptions
-  })
+const { runExample } = createExamples({
+  createLogger,
+  logFilters: { noLifecycle },
+  examples,
+  envVars,
+  defaultOptions
+})
 
-  runExample({
-    local: path.resolve(__dirname, 'local.json')
-  })
-}
+runExample({
+  local: path.resolve(__dirname, 'local.json')
+})
