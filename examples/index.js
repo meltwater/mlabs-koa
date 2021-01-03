@@ -1,7 +1,7 @@
 import path from 'path'
 
 import { createExamples } from '@meltwater/examplr'
-import createLogger from '@meltwater/mlabs-logger'
+import { createLogger } from '@meltwater/mlabs-logger'
 
 import { noLifecycle } from './filters'
 import health from './health'
