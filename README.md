@@ -67,7 +67,7 @@ and third party middleware (explicitly linked below).
 
 ## Installation
 
-Add this and its peer dependencies as dependencies to your project using [npm] with
+Add this as a dependency to your project using [npm] with
 
 ```
 $ npm install awilix koa @meltwater/mlabs-koa
