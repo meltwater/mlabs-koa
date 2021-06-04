@@ -24,21 +24,17 @@ const metricDefs = [
   }
 ]
 
-const createStart = ({
-  reqId,
-  log,
-  registry,
-  healthMonitor,
-  collectAppMetrics
-}) => async () => {
-  healthLogging({
-    log: log.child({ isHealthLog: true, isAppLog: false }),
-    healthMonitor
-  })
-  collectDefaultMetrics({ register: registry })
-  collectAppMetrics({ register: registry })
-  log.info({ reqId }, 'Start')
-}
+const createStart =
+  ({ reqId, log, registry, healthMonitor, collectAppMetrics }) =>
+    async () => {
+      healthLogging({
+        log: log.child({ isHealthLog: true, isAppLog: false }),
+        healthMonitor
+      })
+      collectDefaultMetrics({ register: registry })
+      collectAppMetrics({ register: registry })
+      log.info({ reqId }, 'Start')
+    }
 
 const createStop = () => async () => {}
 
@@ -96,15 +92,16 @@ const createDependencies = ({ log, config }) => {
 
 // NOTE: This example does not use config files,
 // but must still pass a configPath.
-export default ({ log }) => (port = 9000) => {
-  const { configFactory, run } = createServer({
-    logFilters: { noLifecycle },
-    configPath: 'examples',
-    createDependencies
-  })
+export default ({ log }) =>
+  (port = 9000) => {
+    const { configFactory, run } = createServer({
+      logFilters: { noLifecycle },
+      configPath: 'examples',
+      createDependencies
+    })
 
-  configFactory.addOverride({ port })
+    configFactory.addOverride({ port })
 
-  run(configFactory)
-  return new Promise(() => {})
-}
+    run(configFactory)
+    return new Promise(() => {})
+  }
