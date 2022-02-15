@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [11.0.0] / 2022-02-15
+
+### Changed
+
+- Update Awilix to v6.
+- Update @meltwater/mlabs-logger to v9.
+- Update prom-client to v14.
+
 ## [10.2.0] / 2021-06-04
 
 ### Added
@@ -433,7 +441,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 [makenew-node-lib]: https://github.com/meltwater/makenew-node-lib
 
-[Unreleased]: https://github.com/meltwater/mlabs-koa/compare/v10.2.0...HEAD
+[Unreleased]: https://github.com/meltwater/mlabs-koa/compare/v11.0.0...HEAD
+[11.0.0]: https://github.com/meltwater/mlabs-koa/compare/v10.2.0...v11.0.0
 [10.2.0]: https://github.com/meltwater/mlabs-koa/compare/v10.1.0...v10.2.0
 [10.1.0]: https://github.com/meltwater/mlabs-koa/compare/v10.0.0...v10.1.0
 [10.0.0]: https://github.com/meltwater/mlabs-koa/compare/v9.0.0...v10.0.0
