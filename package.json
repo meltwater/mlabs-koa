@@ -141,7 +141,7 @@
     "koa-helmet": "^6.0.0",
     "koa-logger": "^3.1.0",
     "koa-mount": "^4.0.0",
-    "minimatch": "^3.0.4",
+    "minimatch": "^5.0.0",
     "prom-client": "^14.0.1",
     "uuid": "^8.0.0"
   },
