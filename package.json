@@ -130,7 +130,7 @@
     "@meltwater/mlabs-logger": "^9.1.1",
     "@meltwater/phi": "^5.0.0",
     "awaiting": "^3.0.0",
-    "awilix": "^4.0.0",
+    "awilix": "^6.1.0",
     "change-case": "^4.1.1",
     "chokidar": "^3.0.0",
     "confit": "^3.0.0",
