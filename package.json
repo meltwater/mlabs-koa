@@ -142,7 +142,7 @@
     "koa-logger": "^3.1.0",
     "koa-mount": "^4.0.0",
     "minimatch": "^5.0.0",
-    "prom-client": "^14.0.1",
+    "prom-client": "^14.1.0",
     "uuid": "^8.0.0"
   },
   "devDependencies": {
